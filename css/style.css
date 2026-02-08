@@ -1509,6 +1509,67 @@ ul { list-style: none; }
   border-color: rgba(221,205,187,0.3);
 }
 
+/* Footer Hours */
+.footer__hours {
+  border-top: 1px solid rgba(221,205,187,0.1);
+  padding: var(--sp-xl) 0;
+  margin-top: var(--sp-xl);
+}
+.footer__hours h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--beige);
+  letter-spacing: 1px;
+  margin-bottom: var(--sp-lg);
+  text-align: center;
+}
+.footer__hours-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-md);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.footer__hours-item {
+  text-align: center;
+  padding: var(--sp-md);
+  background: rgba(221,205,187,0.05);
+  border-radius: 8px;
+}
+.footer__hours-day {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 4px;
+}
+.footer__hours-time {
+  display: block;
+  font-size: 14px;
+  color: var(--beige);
+  font-weight: 500;
+}
+.footer__hours-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  background: var(--gold);
+  color: var(--green-dark);
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.footer__hours-notice {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-top: var(--sp-md);
+}
+@media (max-width: 600px) {
+  .footer__hours-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .footer__bottom {
   padding-top: var(--sp-xl);
   text-align: center;
@@ -1584,6 +1645,9 @@ ul { list-style: none; }
   letter-spacing: 0.5px;
   margin-top: 2px;
 }
+.floating__btn--naver { background: #03C75A; color: #fff; border-color: transparent; }
+.floating__btn--naver:hover { background: #02a84c; }
+.floating__btn--naver .floating__label { color: #fff; }
 .floating__btn--kakao { background: #FEE500; color: #3C1E1E; border-color: transparent; }
 .floating__btn--kakao:hover { background: #FDD835; }
 .floating__btn--kakao .floating__label { color: #3C1E1E; }
@@ -2366,4 +2430,144 @@ ul { list-style: none; }
 @media (max-width: 599px) {
   .promo { padding: var(--sp-3xl) 0; }
   .promo__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   MOBILE BOTTOM TAB
+   ============================================================ */
+.mobile-tab {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  z-index: 1000;
+  padding: 8px 0;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+@media (max-width: 768px) {
+  .mobile-tab {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  body {
+    padding-bottom: 70px;
+  }
+  .floating {
+    bottom: 80px;
+  }
+}
+.mobile-tab__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-tab__item svg {
+  transition: transform 0.2s;
+}
+.mobile-tab__item span {
+  font-size: 10px;
+  font-weight: 500;
+}
+.mobile-tab__item.active,
+.mobile-tab__item:hover {
+  color: var(--green);
+}
+.mobile-tab__item:active svg {
+  transform: scale(0.9);
+}
+
+/* ============================================================
+   INSTAGRAM FEED
+   ============================================================ */
+.instagram {
+  padding: var(--sp-section) 0;
+  background: var(--gray-50);
+}
+.instagram__header {
+  text-align: center;
+  margin-bottom: var(--sp-2xl);
+}
+.instagram__follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--sp-md);
+  padding: 10px 24px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.instagram__follow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+}
+.instagram__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+@media (max-width: 1024px) {
+  .instagram__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .instagram__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.instagram__item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--gray-200);
+}
+.instagram__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--gray-400);
+  background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+}
+.instagram__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: white;
+}
+.instagram__item:hover .instagram__overlay {
+  opacity: 1;
+}
+
+/* ============================================================
+   NAVER BOOKING BUTTON (Floating)
+   ============================================================ */
+.floating__btn--naver {
+  background: #03C75A;
+  color: white;
+}
+.floating__btn--naver:hover {
+  background: #02b351;
 }
