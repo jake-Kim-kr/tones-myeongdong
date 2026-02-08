@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= page.page_label %> 편집 | TONE's CLINIC 명동점</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #F5F3EF;
+      --bg-secondary: #fff;
+      --bg-tertiary: #FAFAF9;
+      --bg-card: #fff;
+      --bg-hover: #f0ebe5;
+      --bg-input: #FAFAF9;
+      --bg-sidebar: #5C2A2E;
+      --border-color: #e8e4de;
+      --border-light: #f0ebe5;
+      --text-primary: #333;
+      --text-secondary: #666;
+      --text-muted: #999;
+      --accent: #5C2A2E;
+      --accent-hover: #4a2225;
+      --accent-light: #DDCDBB;
+      --accent-subtle: rgba(92, 42, 46, 0.08);
+      --success: #2E7D32;
+      --danger: #C62828;
+      --danger-subtle: rgba(198, 40, 40, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: var(--bg-sidebar); border-right: none; display: flex; flex-direction: column; z-index: 100; }
+    .sidebar__brand { padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .sidebar__logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--accent-light); text-decoration: none; letter-spacing: 1px; }
+    .sidebar__logo span { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 10px; color: rgba(255,255,255,0.5); font-weight: 400; letter-spacing: 2px; margin-top: 4px; }
+    .sidebar__nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section { margin-bottom: 24px; }
+    .nav-section__title { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 12px; }
+    .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 14px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); transition: var(--transition); margin-bottom: 2px; }
+    .nav-link:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-link.active { background: rgba(221,205,187,0.15); color: var(--accent-light); }
+    .nav-link__icon { width: 20px; height: 20px; opacity: 0.7; }
+    .nav-link.active .nav-link__icon { opacity: 1; }
+    .sidebar__footer { padding: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sidebar__user { display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); }
+    .sidebar__avatar { width: 36px; height: 36px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--bg-sidebar); }
+    .sidebar__user-info { flex: 1; }
+    .sidebar__user-name { font-size: 13px; font-weight: 500; color: #fff; }
+    .sidebar__user-role { font-size: 11px; color: rgba(255,255,255,0.5); }
+    .sidebar__logout { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .sidebar__logout:hover { background: rgba(255,255,255,0.1); color: #ff6b6b; }
+
+    /* Main */
+    .main { margin-left: 260px; min-height: 100vh; padding-bottom: 100px; }
+
+    .header { position: sticky; top: 0; background: rgba(245, 243, 239, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 20px 40px; z-index: 50; display: flex; align-items: center; justify-content: space-between; }
+    .header__breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .header__breadcrumb a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: var(--transition); }
+    .header__breadcrumb a:hover { color: var(--accent); }
+    .header__breadcrumb span { color: var(--text-muted); }
+    .header__title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: -0.5px; color: var(--text-primary); }
+
+    .content { padding: 40px; max-width: 900px; }
+
+    /* Section Block */
+    .section-block { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 28px; margin-bottom: 24px; box-shadow: var(--shadow); }
+    .section-block__title { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 10px; }
+    .section-block__title svg { width: 18px; height: 18px; }
+
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+    .field__label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .field__input, .field__textarea {
+      width: 100%; padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm); color: var(--text-primary); font-size: 14px; font-family: inherit;
+      transition: var(--transition); outline: none;
+    }
+    .field__input:focus, .field__textarea:focus { border-color: var(--accent); }
+    .field__textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* Item Group */
+    .item-group { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 12px; background: var(--bg-tertiary); }
+    .item-group__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .item-group__title { font-size: 12px; font-weight: 600; color: var(--accent); }
+    .item-group__remove { background: var(--danger-subtle); color: var(--danger); border: none; border-radius: var(--radius-sm); padding: 6px 12px; font-size: 12px; cursor: pointer; transition: var(--transition); font-family: inherit; }
+    .item-group__remove:hover { background: var(--danger); color: #fff; }
+
+    .add-btn { width: 100%; padding: 14px; border: 2px dashed var(--border-color); border-radius: var(--radius-sm); background: transparent; font-size: 13px; color: var(--text-muted); cursor: pointer; transition: var(--transition); font-family: inherit; margin-top: 12px; }
+    .add-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: var(--transition); text-decoration: none; font-family: inherit; }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* Save Bar */
+    .save-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 20px 40px; display: flex; justify-content: flex-end; z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 100px; right: 40px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); padding: 16px 24px; border-radius: var(--radius-md); font-size: 14px; opacity: 0; transform: translateY(10px); transition: all 0.3s; z-index: 1000; box-shadow: var(--shadow); }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.success { border-color: var(--success); }
+
+    @media (max-width: 1024px) {
+      .sidebar { width: 220px; }
+      .main { margin-left: 220px; }
+      .save-bar { left: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <a href="/admin" class="sidebar__logo">TONE'S CLINIC<span>ADMIN CONSOLE</span></a>
+    </div>
+    <nav class="sidebar__nav">
+      <div class="nav-section">
+        <div class="nav-section__title">콘텐츠</div>
+        <a href="/admin/pages" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          페이지 관리
+        </a>
+        <a href="/admin/treatments" class="nav-link active">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          시술 콘텐츠
+        </a>
+        <a href="/admin/columns" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          칼럼
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section__title">미디어</div>
+        <a href="/admin/images" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          사이트 이미지
+        </a>
+        <a href="/admin/treatment-images" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          시술 이미지
+        </a>
+        <a href="/admin/results" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+          전후사진
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section__title">설정</div>
+        <a href="/admin/settings" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          테마 설정
+        </a>
+        <a href="/" class="nav-link" target="_blank">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          사이트 보기
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar">A</div>
+        <div class="sidebar__user-info"><div class="sidebar__user-name">관리자</div><div class="sidebar__user-role">Administrator</div></div>
+        <button class="sidebar__logout" onclick="logout()" title="로그아웃">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <div>
+        <div class="header__breadcrumb">
+          <a href="/admin/treatments">시술 콘텐츠</a>
+          <span>/</span>
+          <span><%= page.page_label %></span>
+        </div>
+        <h1 class="header__title"><%= page.page_label %> 편집</h1>
+      </div>
+    </header>
+
+    <div class="content">
+      <form id="editForm">
+        <!-- Hero Section -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            히어로 섹션
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label">라벨 (영문)</label>
+              <input type="text" class="field__input" data-key="hero_label" placeholder="예: ULTHERA">
+            </div>
+            <div class="field">
+              <label class="field__label">제목</label>
+              <input type="text" class="field__input" data-key="hero_title" placeholder="예: Ultherapy">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label">부제목</label>
+            <input type="text" class="field__input" data-key="hero_subtitle" placeholder="예: 초음파로 피부 속 깊은 곳부터 리프팅">
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            특장점 카드
+          </div>
+          <div id="features"></div>
+          <button type="button" class="add-btn" onclick="addItem('features', {title:'', desc:''})">+ 특장점 추가</button>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+            시술 과정
+          </div>
+          <div id="steps"></div>
+          <button type="button" class="add-btn" onclick="addItem('steps', {title:'', desc:''})">+ 단계 추가</button>
+        </div>
+
+        <!-- Equipment -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            장비 소개
+          </div>
+          <div class="field">
+            <label class="field__label">장비명</label>
+            <input type="text" class="field__input" data-key="equipment_name" placeholder="예: Ulthera System">
+          </div>
+          <div class="field">
+            <label class="field__label">장비 설명</label>
+            <textarea class="field__textarea" data-key="equipment_desc" placeholder="장비에 대한 설명"></textarea>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            자주 묻는 질문 (FAQ)
+          </div>
+          <div id="faqs"></div>
+          <button type="button" class="add-btn" onclick="addItem('faqs', {question:'', answer:''})">+ FAQ 추가</button>
+        </div>
+
+        <!-- CTA -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+            CTA 배너
+          </div>
+          <div class="field">
+            <label class="field__label">CTA 제목</label>
+            <input type="text" class="field__input" data-key="cta_title" placeholder="예: 울쎄라 시술 상담 예약">
+          </div>
+          <div class="field">
+            <label class="field__label">CTA 설명</label>
+            <textarea class="field__textarea" data-key="cta_desc" placeholder="CTA 설명 문구"></textarea>
+          </div>
+        </div>
+
+        <!-- Category page specific -->
+        <div class="section-block">
+          <div class="section-block__title">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+            카테고리 설명 (카테고리 페이지용)
+          </div>
+          <div class="field">
+            <label class="field__label">카테고리 소개 문구</label>
+            <textarea class="field__textarea" data-key="category_desc" rows="4" placeholder="카테고리 페이지에 표시될 소개 문구"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <div class="save-bar">
+    <button type="button" class="btn btn--primary" onclick="saveData()">
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      저장
+    </button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    var PAGE = '<%= page.page %>';
+    var contentData = {};
+
+    try {
+      contentData = JSON.parse('<%= page.content_json.replace(/\'/g, "\\\'").replace(/\n/g, "\\n") %>') || {};
+    } catch(e) {
+      contentData = {};
+    }
+
+    function getToken() {
+      var m = document.cookie.match(/token=([^;]+)/);
+      return m ? m[1] : null;
+    }
+
+    function showToast(msg, isSuccess) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast show' + (isSuccess ? ' success' : '');
+      setTimeout(function() { t.className = 'toast'; }, 2500);
+    }
+
+    function logout() {
+      document.cookie = 'token=; path=/; max-age=0';
+      window.location.href = '/admin/login';
+    }
+
+    // Populate simple fields
+    function populateFields() {
+      document.querySelectorAll('[data-key]').forEach(function(el) {
+        if (contentData[el.dataset.key]) {
+          el.value = contentData[el.dataset.key];
+        }
+      });
+    }
+
+    // Dynamic list items
+    function renderList(containerId, items, fields) {
+      var container = document.getElementById(containerId);
+      container.innerHTML = '';
+      if (!items) return;
+      items.forEach(function(item, idx) {
+        addItemDOM(containerId, item, idx, fields);
+      });
+    }
+
+    function addItemDOM(containerId, data, idx, fields) {
+      var container = document.getElementById(containerId);
+      var div = document.createElement('div');
+      div.className = 'item-group';
+      div.dataset.idx = idx;
+
+      var header = containerId === 'features' ? '특장점 ' + (idx + 1) :
+                   containerId === 'steps' ? '단계 ' + (idx + 1) :
+                   'FAQ ' + (idx + 1);
+
+      var html = '<div class="item-group__header"><span class="item-group__title">' + header + '</span><button type="button" class="item-group__remove" onclick="removeItem(\'' + containerId + '\',' + idx + ')">삭제</button></div>';
+
+      if (containerId === 'faqs') {
+        html += '<div class="field"><label class="field__label">질문</label><input type="text" class="field__input" data-list="' + containerId + '" data-idx="' + idx + '" data-field="question" value="' + (data.question || '').replace(/"/g, '&quot;') + '"></div>';
+        html += '<div class="field"><label class="field__label">답변</label><textarea class="field__textarea" data-list="' + containerId + '" data-idx="' + idx + '" data-field="answer">' + (data.answer || '') + '</textarea></div>';
+      } else {
+        html += '<div class="field-row">';
+        html += '<div class="field"><label class="field__label">제목</label><input type="text" class="field__input" data-list="' + containerId + '" data-idx="' + idx + '" data-field="title" value="' + (data.title || '').replace(/"/g, '&quot;') + '"></div>';
+        html += '<div class="field"><label class="field__label">설명</label><textarea class="field__textarea" data-list="' + containerId + '" data-idx="' + idx + '" data-field="desc">' + (data.desc || '') + '</textarea></div>';
+        html += '</div>';
+      }
+
+      div.innerHTML = html;
+      container.appendChild(div);
+    }
+
+    function addItem(containerId, defaults) {
+      if (!contentData[containerId]) contentData[containerId] = [];
+      contentData[containerId].push(defaults);
+      var idx = contentData[containerId].length - 1;
+      addItemDOM(containerId, defaults, idx);
+    }
+
+    function removeItem(containerId, idx) {
+      if (!contentData[containerId]) return;
+      contentData[containerId].splice(idx, 1);
+      renderList(containerId, contentData[containerId]);
+    }
+
+    function collectData() {
+      var data = {};
+
+      // Simple fields
+      document.querySelectorAll('[data-key]').forEach(function(el) {
+        if (el.value.trim()) data[el.dataset.key] = el.value.trim();
+      });
+
+      // List fields
+      ['features', 'steps', 'faqs'].forEach(function(listId) {
+        var items = [];
+        var els = document.querySelectorAll('[data-list="' + listId + '"]');
+        var groups = {};
+        els.forEach(function(el) {
+          var idx = el.dataset.idx;
+          if (!groups[idx]) groups[idx] = {};
+          groups[idx][el.dataset.field] = el.value.trim();
+        });
+        Object.keys(groups).sort(function(a,b){return a-b;}).forEach(function(k) {
+          var item = groups[k];
+          var hasContent = Object.values(item).some(function(v) { return v; });
+          if (hasContent) items.push(item);
+        });
+        if (items.length > 0) data[listId] = items;
+      });
+
+      return data;
+    }
+
+    // Save
+    async function saveData() {
+      var data = collectData();
+
+      try {
+        var res = await fetch('/api/treatment-pages/' + PAGE, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getToken() },
+          body: JSON.stringify({ content_json: JSON.stringify(data) })
+        });
+        if (!res.ok) throw new Error('저장 실패');
+        showToast('저장되었습니다.', true);
+      } catch(err) {
+        showToast('오류: ' + err.message, false);
+      }
+    }
+
+    // Init
+    populateFields();
+    renderList('features', contentData.features || []);
+    renderList('steps', contentData.steps || []);
+    renderList('faqs', contentData.faqs || []);
+  </script>
+</body>
+</html>

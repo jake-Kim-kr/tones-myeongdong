@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TONE's CLINIC 명동점 | 울쎄라·써마지·리프팅 전문 명동 프리미엄 피부과</title>
+  <meta name="description" content="서울 중구 명동에 위치한 TONE's CLINIC 명동점. 울쎄라, 써마지, 리프팅, 보톡스 등 프리미엄 피부 시술 전문. 100% 예약제 운영.">
+  <meta name="keywords" content="명동 피부과, 리프팅, 울쎄라, 써마지, 보톡스, 필러">
+  <meta property="og:title" content="TONE's CLINIC 명동점 | 프리미엄 피부 시술">
+  <meta property="og:description" content="명동의 프리미엄 피부과, TONE's CLINIC입니다. 울쎄라, 써마지, 리프팅 전문.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tones-myeongdong.com/">
+  <link rel="canonical" href="https://tones-myeongdong.com/">
+
+  <!-- Fonts: Noto Sans KR + Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Hero Background */
+    .hero__bg {
+      background: url('images/hero-bg.jpg') center/cover no-repeat;
+    }
+    /* About */
+    .about__image-placeholder {
+      background: url('images/about-clinic.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    /* Treatment Cards */
+    .treatment-card:nth-child(1) .treatment-card__placeholder {
+      background: url('images/treatment-lifting.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    .treatment-card:nth-child(2) .treatment-card__placeholder {
+      background: url('images/treatment-skincare.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    .treatment-card:nth-child(3) .treatment-card__placeholder {
+      background: url('images/treatment-injection.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    .treatment-card:nth-child(4) .treatment-card__placeholder {
+      background: url('images/treatment-body.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    /* Column Cards */
+    .column-card .column-card__placeholder {
+      background: url('images/column-editorial.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    .column-card:nth-child(2) .column-card__placeholder {
+      background: url('images/treatment-lifting.jpg') center/cover no-repeat;
+    }
+    .column-card:nth-child(3) .column-card__placeholder {
+      background: url('images/treatment-injection.jpg') center/cover no-repeat;
+    }
+  </style>
+
+  <!-- Structured Data: MedicalClinic -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "TONE's CLINIC 명동점",
+    "url": "https://tones-myeongdong.com",
+    "telephone": "02-XXXX-XXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "서울특별시 중구 명동길",
+      "addressLocality": "서울특별시",
+      "addressRegion": "중구",
+      "addressCountry": "KR"
+    },
+    "openingHours": [
+      "Mo-Th 10:00-19:00",
+      "Fr 10:00-21:00",
+      "Sa 10:00-16:00"
+    ],
+    "medicalSpecialty": "Dermatology"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span>
+        <span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="#hero" class="header__link active">HOME</a></li>
+          <li><a href="#about" class="header__link">소개</a></li>
+          <li class="header__has-dropdown">
+            <a href="#treatments" class="header__link">시술안내</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">리프팅</a></li>
+              <li><a href="treatments/skincare.html">피부관리</a></li>
+              <li><a href="treatments/injection.html">주사시술</a></li>
+              <li><a href="treatments/body.html">체형관리</a></li>
+            </ul>
+          </li>
+          <li><a href="#results" class="header__link">전후사진</a></li>
+          <li><a href="#column" class="header__link">칼럼</a></li>
+          <li><a href="#location" class="header__link">오시는 길</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">예약하기</a>
+        <div class="header__lang" aria-label="언어 선택">
+          <span>KR</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="/" class="active">한국어</a>
+            <a href="/ja/">日本語</a>
+            <a href="/zh-cn/">简体中文</a>
+            <a href="/zh-tw/">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="메뉴 닫기">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="#hero" class="drawer__link">HOME</a>
+        <a href="#about" class="drawer__link">소개</a>
+        <a href="#treatments" class="drawer__link">시술안내</a>
+        <a href="#results" class="drawer__link">전후사진</a>
+        <a href="#column" class="drawer__link">칼럼</a>
+        <a href="#location" class="drawer__link">오시는 길</a>
+        <a href="reservation.html" class="drawer__cta">예약하기</a>
+      </nav>
+      <div class="drawer__contact">
+        <p>02-XXXX-XXXX</p>
+        <p>서울특별시 중구 명동길</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__subtitle reveal">TONE's CLINIC MYEONGDONG</p>
+      <h1 class="hero__title reveal">
+        <span class="hero__title-en">Lifting Life</span>
+        <span class="hero__title-kr">프리미엄 신뢰의 경험, 맞춤 시술의 완성</span>
+      </h1>
+      <p class="hero__desc reveal">명동의 프리미엄 피부 전문, TONE's CLINIC입니다<br>당신만을 위해 설계된 1:1 맞춤 안티에이징</p>
+    </div>
+    <div class="hero__scroll">
+      <span>SCROLL DOWN</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <span class="section-label">ABOUT TONE's MYEONGDONG</span>
+          <h2 class="section-title">
+            보이지 않는 것까지<br>
+            <em>들여다봅니다</em>
+          </h2>
+          <p class="about__desc">
+            좋은 시술은 눈에 띄지 않습니다.
+            자연스러움의 완성은 정밀한 진단에서 시작됩니다.
+          </p>
+          <p class="about__desc">
+            TONE's 명동점은 한 분 한 분의 피부결, 골격, 노화 패턴까지
+            세밀하게 읽어내어 시술을 설계합니다.
+          </p>
+          <div class="about__points">
+            <div class="about__point">
+              <span class="about__point-num">01</span>
+              <div>
+                <strong>오직 한 사람을 위한 시간</strong>
+                <p>1:1 전담 시스템, 개인별 맞춤 설계</p>
+              </div>
+            </div>
+            <div class="about__point">
+              <span class="about__point-num">02</span>
+              <div>
+                <strong>결과로 증명하는 장비</strong>
+                <p>울쎄라·써마지 정품 인증 클리닉</p>
+              </div>
+            </div>
+            <div class="about__point">
+              <span class="about__point-num">03</span>
+              <div>
+                <strong>온전히 나만의 공간</strong>
+                <p>독립 시술실, 프라이빗 동선</p>
+              </div>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn--outline">자세히 보기</a>
+        </div>
+        <div class="about__image reveal">
+          <div class="about__image-frame">
+            <div class="about__image-placeholder">
+              <span>클리닉 내부 사진</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TREATMENTS SECTION ========== -->
+  <section class="treatments" id="treatments">
+    <div class="treatments__bg">
+      <div class="container">
+        <div class="treatments__header reveal">
+          <span class="section-label section-label--light">TREATMENTS</span>
+          <h2 class="section-title section-title--light">
+            피부가 원하는 것을<br><em>정확히 찾아냅니다</em>
+          </h2>
+          <p class="treatments__subtitle">각각의 시술에는 이유가 있습니다<br>당신의 피부에 가장 적합한 답을 제안합니다</p>
+        </div>
+        <div class="treatments__grid">
+          <a href="treatments/lifting.html" class="treatment-card reveal">
+            <div class="treatment-card__image">
+              <div class="treatment-card__placeholder">리프팅</div>
+              <div class="treatment-card__overlay"></div>
+            </div>
+            <div class="treatment-card__content">
+              <span class="treatment-card__num">01</span>
+              <h3 class="treatment-card__title">리프팅</h3>
+              <p class="treatment-card__en">Lifting</p>
+              <p class="treatment-card__desc">처진 윤곽선을 되돌리고, 피부 안쪽부터 탄력을 끌어올립니다.</p>
+              <span class="treatment-card__arrow">&rarr;</span>
+            </div>
+          </a>
+          <a href="treatments/skincare.html" class="treatment-card reveal">
+            <div class="treatment-card__image">
+              <div class="treatment-card__placeholder">피부관리</div>
+              <div class="treatment-card__overlay"></div>
+            </div>
+            <div class="treatment-card__content">
+              <span class="treatment-card__num">02</span>
+              <h3 class="treatment-card__title">피부관리</h3>
+              <p class="treatment-card__en">Skin Care</p>
+              <p class="treatment-card__desc">피부결의 밀도를 높이고, 안에서 빛나는 투명함을 만듭니다.</p>
+              <span class="treatment-card__arrow">&rarr;</span>
+            </div>
+          </a>
+          <a href="treatments/injection.html" class="treatment-card reveal">
+            <div class="treatment-card__image">
+              <div class="treatment-card__placeholder">주사시술</div>
+              <div class="treatment-card__overlay"></div>
+            </div>
+            <div class="treatment-card__content">
+              <span class="treatment-card__num">03</span>
+              <h3 class="treatment-card__title">주사시술</h3>
+              <p class="treatment-card__en">Injection</p>
+              <p class="treatment-card__desc">미세한 양의 차이가 인상을 바꿉니다. 자연스러움이 기준입니다.</p>
+              <span class="treatment-card__arrow">&rarr;</span>
+            </div>
+          </a>
+          <a href="treatments/body.html" class="treatment-card reveal">
+            <div class="treatment-card__image">
+              <div class="treatment-card__placeholder">체형관리</div>
+              <div class="treatment-card__overlay"></div>
+            </div>
+            <div class="treatment-card__content">
+              <span class="treatment-card__num">04</span>
+              <h3 class="treatment-card__title">체형관리</h3>
+              <p class="treatment-card__en">Body Care</p>
+              <p class="treatment-card__desc">균형 잡힌 바디라인을 위한 체계적 관리. 자신감을 되찾습니다.</p>
+              <span class="treatment-card__arrow">&rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUST NUMBERS (리움 참고) ========== -->
+  <section class="trust" id="trust">
+    <div class="container">
+      <div class="trust__header reveal">
+        <span class="section-label">WHY TONE's MYEONGDONG</span>
+        <h2 class="section-title">자신감 넘치는 이유?<br><em>이 3가지가 다르기 때문입니다</em></h2>
+      </div>
+      <div class="trust__grid reveal">
+        <div class="trust__item">
+          <span class="trust__number">15<small>억+</small></span>
+          <strong class="trust__label">프리미엄 장비 투자</strong>
+          <p class="trust__desc">울쎄라·써마지 정품 인증, 더 좋은 결과를 위해 고가 장비에 아낌없이 투자합니다.</p>
+        </div>
+        <div class="trust__item">
+          <span class="trust__number">1:1</span>
+          <strong class="trust__label">전담 맞춤 시술</strong>
+          <p class="trust__desc">모든 시술은 원장 상담 후 진행. 개인별 피부 상태에 맞는 맞춤 프로토콜을 설계합니다.</p>
+        </div>
+        <div class="trust__item">
+          <span class="trust__number">100<small>%</small></span>
+          <strong class="trust__label">프라이빗 공간</strong>
+          <p class="trust__desc">호텔급 독립 시술실과 프라이빗 동선. 시술 전후 온전히 편안한 공간을 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS (BEFORE/AFTER) SECTION ========== -->
+  <section class="results" id="results">
+    <div class="container">
+      <div class="results__header reveal">
+        <span class="section-label">BEFORE &amp; AFTER</span>
+        <h2 class="section-title">보고 <em>결정하세요</em></h2>
+        <p class="results__note">※ 촬영 동의 하에 게시되었으며, 별도의 보정이 들어가지 않은 사진입니다.<br>※ 개인에 따라 시술 효과가 다를 수 있으며, 부작용이 발생할 수 있습니다.</p>
+      </div>
+      <div class="results__tabs reveal">
+        <button class="results__tab active" data-tab="all">전체</button>
+        <button class="results__tab" data-tab="lifting">리프팅</button>
+        <button class="results__tab" data-tab="skin">피부관리</button>
+        <button class="results__tab" data-tab="injection">주사시술</button>
+        <button class="results__tab" data-tab="body">체형관리</button>
+      </div>
+      <div class="results__grid reveal" id="resultsGrid">
+        <div class="results__empty" id="resultsEmpty" style="text-align:center;padding:60px 0;color:#999;display:none;">
+          등록된 전후사진이 없습니다.
+        </div>
+      </div>
+      <div class="results__more reveal">
+        <a href="results.html" class="btn btn--outline">전후사진 더보기</a>
+      </div>
+      <script>
+        (function() {
+          var categoryNames = { lifting: '리프팅', skin: '피부관리', injection: '주사시술', body: '체형관리' };
+          var grid = document.getElementById('resultsGrid');
+          var emptyEl = document.getElementById('resultsEmpty');
+
+          function createCard(r) {
+            var beforeImg = r.before_image
+              ? '<img src="' + r.before_image + '" alt="Before" style="width:100%;height:100%;object-fit:cover;">'
+              : '<div class="result-card__placeholder">시술 전</div>';
+            var afterImg = r.after_image
+              ? '<img src="' + r.after_image + '" alt="After" style="width:100%;height:100%;object-fit:cover;">'
+              : '<div class="result-card__placeholder">시술 후</div>';
+
+            return '<div class="result-card" data-category="' + r.category + '">' +
+              '<div class="result-card__images">' +
+                '<div class="result-card__before"><span class="result-card__label">Before</span>' + beforeImg + '</div>' +
+                '<div class="result-card__after"><span class="result-card__label result-card__label--after">After</span>' + afterImg + '</div>' +
+              '</div>' +
+              '<div class="result-card__info">' +
+                '<span class="result-card__category">' + (categoryNames[r.category] || r.category) + '</span>' +
+                '<span class="result-card__name">' + r.treatment_name + '</span>' +
+              '</div></div>';
+          }
+
+          fetch('/api/results')
+            .then(function(res) { return res.json(); })
+            .then(function(results) {
+              if (!results || results.length === 0) {
+                emptyEl.style.display = 'block';
+                return;
+              }
+              var html = '';
+              var count = 0;
+              results.forEach(function(r) {
+                if (r.is_visible && count < 6) {
+                  html += createCard(r);
+                  count++;
+                }
+              });
+              if (!html) { emptyEl.style.display = 'block'; return; }
+              grid.innerHTML = html + emptyEl.outerHTML;
+
+              // Re-bind tab filtering
+              var tabs = document.querySelectorAll('.results__tab');
+              tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                  tabs.forEach(function(t) { t.classList.remove('active'); });
+                  tab.classList.add('active');
+                  var filter = tab.getAttribute('data-tab');
+                  var cards = grid.querySelectorAll('.result-card');
+                  cards.forEach(function(card) {
+                    card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+                  });
+                });
+              });
+            })
+            .catch(function() { emptyEl.style.display = 'block'; });
+        })();
+      </script>
+    </div>
+  </section>
+
+  <!-- ========== COLUMN SECTION ========== -->
+  <section class="column" id="column">
+    <div class="column__bg">
+      <div class="container">
+        <div class="column__header reveal">
+          <span class="section-label section-label--light">DOCTOR'S COLUMN</span>
+          <h2 class="section-title section-title--light">
+            피부에 대해<br><em>솔직하게</em>
+          </h2>
+        </div>
+        <div class="column__grid reveal">
+          <a href="column/index.html" class="column-card">
+            <div class="column-card__image">
+              <div class="column-card__placeholder">칼럼 이미지</div>
+              <span class="column-card__category">리프팅</span>
+            </div>
+            <div class="column-card__content">
+              <h3 class="column-card__title">울쎄라, 기대와 현실 사이</h3>
+              <p class="column-card__excerpt">시술 전 알아야 할 것들. 원리부터 변화의 타임라인까지.</p>
+              <span class="column-card__date">2026.02.07</span>
+            </div>
+          </a>
+          <a href="column/index.html" class="column-card">
+            <div class="column-card__image">
+              <div class="column-card__placeholder">칼럼 이미지</div>
+              <span class="column-card__category">리프팅</span>
+            </div>
+            <div class="column-card__content">
+              <h3 class="column-card__title">써마지와 울쎄라, 같은 듯 다른 선택</h3>
+              <p class="column-card__excerpt">두 시술의 본질적 차이. 내 피부에는 어떤 답이 맞을까.</p>
+              <span class="column-card__date">2026.02.05</span>
+            </div>
+          </a>
+          <a href="column/index.html" class="column-card">
+            <div class="column-card__image">
+              <div class="column-card__placeholder">칼럼 이미지</div>
+              <span class="column-card__category">주사시술</span>
+            </div>
+            <div class="column-card__content">
+              <h3 class="column-card__title">보톡스라는 이름 뒤에 숨은 디테일</h3>
+              <p class="column-card__excerpt">단순해 보이는 시술일수록, 섬세함이 결과를 가릅니다.</p>
+              <span class="column-card__date">2026.02.03</span>
+            </div>
+          </a>
+        </div>
+        <div class="column__more reveal">
+          <a href="column/index.html" class="btn btn--gold">칼럼 전체보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROMOTION / EVENT (리움/밀리 참고) ========== -->
+  <section class="promo" id="promo">
+    <div class="container">
+      <div class="promo__header reveal">
+        <span class="section-label">PROMOTION</span>
+        <h2 class="section-title">지금, <em>특별한 기회</em></h2>
+      </div>
+      <div class="promo__grid reveal">
+        <a href="reservation.html" class="promo-card">
+          <div class="promo-card__badge">NEW</div>
+          <div class="promo-card__content">
+            <span class="promo-card__category">리프팅</span>
+            <h3 class="promo-card__title">울쎄라 + 써마지<br>콤비 리프팅</h3>
+            <p class="promo-card__desc">두 가지 에너지를 레이어링하여 시너지 극대화</p>
+            <span class="promo-card__cta">상담 예약 &rarr;</span>
+          </div>
+        </a>
+        <a href="reservation.html" class="promo-card">
+          <div class="promo-card__content">
+            <span class="promo-card__category">피부관리</span>
+            <h3 class="promo-card__title">첫 방문 고객<br>스킨 컨설팅</h3>
+            <p class="promo-card__desc">피부 진단부터 맞춤 시술 설계까지 1:1 상담</p>
+            <span class="promo-card__cta">상담 예약 &rarr;</span>
+          </div>
+        </a>
+        <a href="reservation.html" class="promo-card">
+          <div class="promo-card__content">
+            <span class="promo-card__category">주사시술</span>
+            <h3 class="promo-card__title">보톡스 + 물광<br>패키지</h3>
+            <p class="promo-card__desc">자연스러운 인상 개선과 피부 광채를 한 번에</p>
+            <span class="promo-card__cta">상담 예약 &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LOCATION SECTION ========== -->
+  <section class="location" id="location">
+    <div class="container">
+      <div class="location__grid">
+        <div class="location__map reveal">
+          <div class="location__map-placeholder">
+            <span>카카오맵 / 네이버맵<br>임베드 영역</span>
+          </div>
+        </div>
+        <div class="location__info reveal">
+          <span class="section-label">LOCATION</span>
+          <h2 class="section-title">오시는 길</h2>
+          <div class="location__details">
+            <div class="location__item">
+              <div class="location__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong>주소</strong>
+                <p>서울특별시 중구 명동길 [상세주소]</p>
+                <p class="location__sub">명동역 7번 출구 도보 3분</p>
+              </div>
+            </div>
+            <div class="location__item">
+              <div class="location__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <strong>전화</strong>
+                <p><a href="tel:02-XXXX-XXXX">02-XXXX-XXXX</a></p>
+              </div>
+            </div>
+            <div class="location__item">
+              <div class="location__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              </div>
+              <div>
+                <strong>진료시간</strong>
+                <div class="location__hours">
+                  <p>월 - 목 <span>10:00 ~ 19:00</span></p>
+                  <p>금요일 <span>10:00 ~ 21:00</span> <em class="location__badge">야간진료</em></p>
+                  <p>토요일 <span>10:00 ~ 16:00</span></p>
+                  <p>일·공휴일 <span>휴무</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="location__notice">※ 100% 예약제로 운영됩니다.</p>
+          <a href="reservation.html" class="btn btn--primary">온라인 예약하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">프리미엄 신뢰의 경험, 맞춤 시술의 완성</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>시술안내</h4>
+            <a href="treatments/lifting.html">리프팅</a>
+            <a href="treatments/skincare.html">피부관리</a>
+            <a href="treatments/injection.html">주사시술</a>
+            <a href="treatments/body.html">체형관리</a>
+          </div>
+          <div class="footer__col">
+            <h4>클리닉</h4>
+            <a href="about.html">클리닉 소개</a>
+            <a href="about.html#doctor">의료진 소개</a>
+            <a href="results.html">전후사진</a>
+            <a href="column/index.html">칼럼</a>
+          </div>
+          <div class="footer__col">
+            <h4>고객지원</h4>
+            <a href="reservation.html">예약하기</a>
+            <a href="location.html">오시는 길</a>
+            <a href="pricing.html">비급여항목안내</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="카카오톡">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="인스타그램">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="유튜브">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="블로그">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 5.4a3.4 3.4 0 00-4.8 0L4.2 16.8l-.6 3.6 3.6-.6L18.6 8.4m1.8-3a2.1 2.1 0 010 3L9 19.8"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>톤즈클리닉 명동점 | 대표: OOO | 사업자등록번호: XXX-XX-XXXXX</p>
+          <p>서울특별시 중구 명동길 [상세주소] | 대표전화: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="terms.html">이용약관</a>
+          <a href="pricing.html">비급여항목안내</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="카카오톡 상담">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">카톡상담</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="전화 상담">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">전화상담</span>
+    </a>
+    <a href="reservation.html" class="floating__btn floating__btn--consult" aria-label="빠른 상담">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span class="floating__label">빠른상담</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="맨 위로">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/cms-render.js"></script>
+</body>
+</html>

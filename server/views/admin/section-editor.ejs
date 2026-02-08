@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= isNew ? '새 섹션' : section.section_key %> | TONE's CLINIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #F5F3EF;
+      --bg-secondary: #fff;
+      --bg-tertiary: #FAFAF9;
+      --bg-card: #fff;
+      --bg-hover: #f0ebe5;
+      --bg-input: #FAFAF9;
+      --bg-sidebar: #5C2A2E;
+      --border-color: #e8e4de;
+      --border-light: #f0ebe5;
+      --border-focus: #5C2A2E;
+      --text-primary: #333;
+      --text-secondary: #666;
+      --text-muted: #999;
+      --accent: #5C2A2E;
+      --accent-hover: #4a2225;
+      --accent-light: #DDCDBB;
+      --accent-subtle: rgba(92, 42, 46, 0.08);
+      --success: #2E7D32;
+      --danger: #C62828;
+      --danger-subtle: rgba(198, 40, 40, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: var(--bg-sidebar); border-right: none; display: flex; flex-direction: column; z-index: 100; }
+    .sidebar__brand { padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .sidebar__logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--accent-light); text-decoration: none; letter-spacing: 1px; }
+    .sidebar__logo span { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 10px; color: rgba(255,255,255,0.5); font-weight: 400; letter-spacing: 2px; margin-top: 4px; }
+    .sidebar__nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section { margin-bottom: 24px; }
+    .nav-section__title { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 12px; }
+    .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 14px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); transition: var(--transition); margin-bottom: 2px; }
+    .nav-link:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-link.active { background: rgba(221,205,187,0.15); color: var(--accent-light); }
+    .nav-link__icon { width: 20px; height: 20px; opacity: 0.7; }
+    .sidebar__footer { padding: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sidebar__user { display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); }
+    .sidebar__avatar { width: 36px; height: 36px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--bg-sidebar); }
+    .sidebar__user-info { flex: 1; }
+    .sidebar__user-name { font-size: 13px; font-weight: 500; color: #fff; }
+    .sidebar__user-role { font-size: 11px; color: rgba(255,255,255,0.5); }
+    .sidebar__logout { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .sidebar__logout:hover { background: rgba(255,255,255,0.1); color: #ff6b6b; }
+
+    /* Main */
+    .main { margin-left: 260px; min-height: 100vh; padding-bottom: 100px; }
+
+    .header { position: sticky; top: 0; background: rgba(245, 243, 239, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 20px 40px; z-index: 50; display: flex; align-items: center; justify-content: space-between; }
+    .header__breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .header__breadcrumb a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: var(--transition); }
+    .header__breadcrumb a:hover { color: var(--accent); }
+    .header__breadcrumb span { color: var(--text-muted); }
+    .header__title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: -0.5px; color: var(--text-primary); }
+
+    .content { padding: 40px; display: grid; grid-template-columns: 320px 1fr; gap: 32px; }
+
+    /* Settings Panel */
+    .settings-panel { position: sticky; top: 120px; align-self: start; }
+    .panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow); }
+    .panel__title { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); }
+
+    .field { margin-bottom: 20px; }
+    .field:last-child { margin-bottom: 0; }
+    .field__label { display: block; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 8px; }
+    .field__input, .field__select, .field__textarea {
+      width: 100%; padding: 12px 16px; background: var(--bg-input); border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm); color: var(--text-primary); font-size: 14px; font-family: inherit;
+      transition: var(--transition); outline: none;
+    }
+    .field__input:focus, .field__select:focus, .field__textarea:focus { border-color: var(--border-focus); }
+    .field__input:disabled { opacity: 0.5; cursor: not-allowed; }
+    .field__select { cursor: pointer; }
+    .field__hint { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+    .field__checkbox { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .field__checkbox input { width: 18px; height: 18px; accent-color: var(--accent); }
+
+    /* Editor Panel */
+    .editor-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow); }
+
+    .lang-tabs { display: flex; background: var(--bg-tertiary); border-bottom: 1px solid var(--border-color); }
+    .lang-tab { padding: 16px 24px; font-size: 14px; font-weight: 500; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: var(--transition); display: flex; align-items: center; gap: 8px; }
+    .lang-tab:hover { color: var(--text-secondary); background: var(--bg-hover); }
+    .lang-tab.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--bg-card); }
+    .lang-tab__flag { font-size: 16px; }
+
+    .editor-toolbar { display: flex; gap: 8px; padding: 16px 24px; background: var(--bg-tertiary); border-bottom: 1px solid var(--border-color); }
+    .mode-btn { padding: 8px 16px; font-size: 13px; font-weight: 500; background: transparent; border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-secondary); cursor: pointer; transition: var(--transition); font-family: inherit; }
+    .mode-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+    .mode-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .lang-panel { display: none; padding: 24px; }
+    .lang-panel.active { display: block; }
+
+    .visual-editor { display: block; }
+    .visual-editor.hidden { display: none; }
+    .json-editor { display: none; font-family: 'Monaco', 'Menlo', monospace; font-size: 13px; min-height: 500px; line-height: 1.6; resize: vertical; background: var(--bg-input); }
+    .json-editor.active { display: block; }
+
+    .visual-field { margin-bottom: 24px; padding: 20px; background: var(--bg-tertiary); border-radius: var(--radius-sm); }
+    .visual-field__label { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 12px; display: block; }
+    .visual-field input, .visual-field textarea { background: var(--bg-input); }
+
+    .items-list { margin-top: 16px; }
+    .item-row { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 12px; }
+    .item-row__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .item-row__title { font-size: 12px; font-weight: 600; color: var(--accent); }
+    .item-row__remove { background: var(--danger-subtle); color: var(--danger); border: none; border-radius: var(--radius-sm); padding: 6px 12px; font-size: 12px; cursor: pointer; transition: var(--transition); font-family: inherit; }
+    .item-row__remove:hover { background: var(--danger); color: #fff; }
+    .item-row__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .add-item-btn { width: 100%; padding: 14px; border: 2px dashed var(--border-color); border-radius: var(--radius-sm); background: transparent; font-size: 14px; color: var(--text-muted); cursor: pointer; transition: var(--transition); font-family: inherit; margin-top: 12px; }
+    .add-item-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Save Bar */
+    .save-bar { position: fixed; bottom: 0; left: 260px; right: 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 20px 40px; display: flex; justify-content: flex-end; gap: 12px; z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.05); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: var(--transition); text-decoration: none; font-family: inherit; }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn--ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); }
+    .btn--ghost:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 100px; right: 40px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); padding: 16px 24px; border-radius: var(--radius-md); font-size: 14px; opacity: 0; transform: translateY(10px); transition: all 0.3s; z-index: 1000; box-shadow: var(--shadow); }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Upload */
+    .upload-zone { border: 2px dashed var(--border-color); border-radius: var(--radius-sm); padding: 20px; text-align: center; cursor: pointer; transition: var(--transition); }
+    .upload-zone:hover { border-color: var(--accent); }
+    .upload-zone input { display: none; }
+    .upload-zone__text { font-size: 13px; color: var(--text-muted); }
+    .upload-result { margin-top: 12px; font-size: 12px; color: var(--accent); word-break: break-all; padding: 12px; background: var(--bg-tertiary); border-radius: var(--radius-sm); }
+
+    @media (max-width: 1200px) {
+      .content { grid-template-columns: 1fr; }
+      .settings-panel { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .settings-panel .panel { margin-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <a href="/admin" class="sidebar__logo">TONE'S CLINIC<span>ADMIN CONSOLE</span></a>
+    </div>
+    <nav class="sidebar__nav">
+      <div class="nav-section">
+        <div class="nav-section__title">콘텐츠</div>
+        <a href="/admin/pages" class="nav-link active">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          페이지 관리
+        </a>
+        <a href="/admin/treatments" class="nav-link"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>시술 콘텐츠</a>
+        <a href="/admin/columns" class="nav-link"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>칼럼</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section__title">미디어</div>
+        <a href="/admin/images" class="nav-link"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>사이트 이미지</a>
+        <a href="/admin/treatment-images" class="nav-link"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>시술 이미지</a>
+        <a href="/admin/results" class="nav-link"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>전후사진</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section__title">설정</div>
+        <a href="/admin/settings" class="nav-link"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>테마 설정</a>
+        <a href="/" class="nav-link" target="_blank"><svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>사이트 보기</a>
+      </div>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar">A</div>
+        <div class="sidebar__user-info"><div class="sidebar__user-name">관리자</div><div class="sidebar__user-role">Administrator</div></div>
+        <button class="sidebar__logout" onclick="logout()"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg></button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <div>
+        <div class="header__breadcrumb">
+          <a href="/admin/pages">페이지 관리</a><span>/</span>
+          <a href="/admin/pages/<%= page %>"><%= pageInfo.label %></a><span>/</span>
+          <span><%= isNew ? '새 섹션' : section.section_key %></span>
+        </div>
+        <h1 class="header__title"><%= isNew ? '새 섹션 추가' : '섹션 편집' %></h1>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="settings-panel">
+        <div class="panel">
+          <div class="panel__title">섹션 설정</div>
+          <div class="field">
+            <label class="field__label">섹션 타입</label>
+            <select class="field__select" id="sectionType">
+              <% Object.keys(SECTION_TYPES).forEach(function(type) { %>
+                <option value="<%= type %>" <%= (!isNew && section.section_type === type) ? 'selected' : '' %>><%= SECTION_TYPES[type].icon %> <%= SECTION_TYPES[type].label %></option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label">섹션 키</label>
+            <input type="text" class="field__input" id="sectionKey" value="<%= isNew ? '' : section.section_key %>" placeholder="예: home_hero" <%= isNew ? '' : 'disabled' %>>
+            <div class="field__hint">영문, 숫자, 언더스코어만 사용</div>
+          </div>
+          <div class="field">
+            <label class="field__label">표시 순서</label>
+            <input type="number" class="field__input" id="displayOrder" value="<%= isNew ? 1 : section.display_order %>" min="1">
+          </div>
+          <div class="field">
+            <label class="field__checkbox">
+              <input type="checkbox" id="isVisible" <%= (isNew || section.is_visible) ? 'checked' : '' %>>
+              <span>페이지에 표시</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__title">이미지 업로드</div>
+          <div class="upload-zone" onclick="document.getElementById('imageUpload').click()">
+            <input type="file" id="imageUpload" accept="image/*">
+            <div class="upload-zone__text">클릭하여 이미지 업로드</div>
+          </div>
+          <div class="upload-result" id="uploadedUrl" style="display: none;"></div>
+        </div>
+      </div>
+
+      <div class="editor-panel">
+        <div class="lang-tabs">
+          <div class="lang-tab active" data-lang="ko"><span class="lang-tab__flag">🇰🇷</span>한국어</div>
+          <div class="lang-tab" data-lang="ja"><span class="lang-tab__flag">🇯🇵</span>日本語</div>
+          <div class="lang-tab" data-lang="zh-cn"><span class="lang-tab__flag">🇨🇳</span>简体中文</div>
+          <div class="lang-tab" data-lang="zh-tw"><span class="lang-tab__flag">🇹🇼</span>繁體中文</div>
+        </div>
+
+        <div class="editor-toolbar">
+          <button type="button" class="mode-btn active" data-mode="visual">비주얼 에디터</button>
+          <button type="button" class="mode-btn" data-mode="json">JSON 에디터</button>
+        </div>
+
+        <% ['ko', 'ja', 'zh-cn', 'zh-tw'].forEach(function(lang, idx) {
+          var fieldName = 'content_' + lang.replace('-', '_');
+        %>
+          <div class="lang-panel <%= idx === 0 ? 'active' : '' %>" data-lang="<%= lang %>">
+            <div class="visual-editor" id="visual-<%= lang %>"></div>
+            <textarea class="field__textarea json-editor" id="json-<%= lang %>" placeholder='{"title": "제목", "description": "설명..."}'><%= isNew ? '{}' : (section[fieldName] || '{}') %></textarea>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </main>
+
+  <div class="save-bar">
+    <a href="/admin/pages/<%= page %>" class="btn btn--ghost">취소</a>
+    <button type="button" class="btn btn--primary" onclick="saveSection()">
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      <%= isNew ? '섹션 추가' : '저장' %>
+    </button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    var PAGE = '<%= page %>';
+    var IS_NEW = <%= isNew %>;
+    var SECTION_ID = <%= isNew ? 'null' : section.id %>;
+    var currentLang = 'ko';
+    var editorMode = 'visual';
+
+    var SECTION_FIELDS = {
+      hero: [
+        { key: 'label', label: '라벨 (영문)', type: 'text' },
+        { key: 'title_en', label: '제목 (영문)', type: 'text' },
+        { key: 'title_kr', label: '제목', type: 'text' },
+        { key: 'description', label: '설명 (HTML 가능)', type: 'textarea' },
+        { key: 'button_text', label: '버튼 텍스트', type: 'text' },
+        { key: 'button_link', label: '버튼 링크', type: 'text' }
+      ],
+      about: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목 (HTML 가능)', type: 'textarea' },
+        { key: 'description', label: '설명 (줄바꿈으로 구분)', type: 'textarea', isArray: true },
+        { key: 'points', label: '특장점', type: 'items', fields: ['num', 'title', 'desc'] },
+        { key: 'button_text', label: '버튼 텍스트', type: 'text' },
+        { key: 'button_link', label: '버튼 링크', type: 'text' }
+      ],
+      treatments: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목 (HTML 가능)', type: 'textarea' },
+        { key: 'subtitle', label: '부제목', type: 'textarea' },
+        { key: 'items', label: '시술 항목', type: 'items', fields: ['num', 'title', 'en', 'desc', 'link'] }
+      ],
+      trust: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목 (HTML 가능)', type: 'textarea' },
+        { key: 'items', label: '신뢰 지표', type: 'items', fields: ['number', 'unit', 'label', 'desc'] }
+      ],
+      results: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목 (HTML 가능)', type: 'textarea' },
+        { key: 'note', label: '안내문구', type: 'textarea' },
+        { key: 'button_text', label: '버튼 텍스트', type: 'text' }
+      ],
+      column: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목 (HTML 가능)', type: 'textarea' },
+        { key: 'button_text', label: '버튼 텍스트', type: 'text' }
+      ],
+      promo: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목 (HTML 가능)', type: 'textarea' },
+        { key: 'items', label: '프로모션 항목', type: 'items', fields: ['badge', 'category', 'title', 'desc', 'cta', 'link'] }
+      ],
+      location: [
+        { key: 'label', label: '라벨', type: 'text' },
+        { key: 'title', label: '제목', type: 'text' },
+        { key: 'address', label: '주소', type: 'text' },
+        { key: 'subway', label: '지하철', type: 'text' },
+        { key: 'phone', label: '전화번호', type: 'text' },
+        { key: 'hours', label: '운영시간', type: 'items', fields: ['day', 'time', 'badge'] },
+        { key: 'notice', label: '안내문구', type: 'text' },
+        { key: 'button_text', label: '버튼 텍스트', type: 'text' }
+      ],
+      cta: [
+        { key: 'title', label: '제목', type: 'textarea' },
+        { key: 'description', label: '설명', type: 'textarea' },
+        { key: 'button_text', label: '버튼 텍스트', type: 'text' },
+        { key: 'button_link', label: '버튼 링크', type: 'text' }
+      ],
+      custom: [{ key: 'content', label: '커스텀 콘텐츠', type: 'textarea' }]
+    };
+
+    function getToken() { var m = document.cookie.match(/token=([^;]+)/); return m ? m[1] : null; }
+    function showToast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(function() { t.classList.remove('show'); }, 2500); }
+    function logout() { document.cookie = 'token=; path=/; max-age=0'; window.location.href = '/admin/login'; }
+    function escapeHtml(str) { if (!str) return ''; return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+    // Language tabs
+    document.querySelectorAll('.lang-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        currentLang = tab.dataset.lang;
+        document.querySelectorAll('.lang-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.lang-panel').forEach(function(p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.querySelector('.lang-panel[data-lang="' + currentLang + '"]').classList.add('active');
+      });
+    });
+
+    // Editor mode toggle
+    document.querySelectorAll('.mode-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        editorMode = btn.dataset.mode;
+        document.querySelectorAll('.mode-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        ['ko', 'ja', 'zh-cn', 'zh-tw'].forEach(function(lang) {
+          var visual = document.getElementById('visual-' + lang);
+          var json = document.getElementById('json-' + lang);
+          if (editorMode === 'visual') {
+            try { var data = JSON.parse(json.value || '{}'); renderVisualEditor(lang, data); } catch(e) {}
+            visual.classList.remove('hidden');
+            json.classList.remove('active');
+          } else {
+            var data = collectVisualData(lang);
+            json.value = JSON.stringify(data, null, 2);
+            visual.classList.add('hidden');
+            json.classList.add('active');
+          }
+        });
+      });
+    });
+
+    function renderVisualEditor(lang, data) {
+      var container = document.getElementById('visual-' + lang);
+      var sectionType = document.getElementById('sectionType').value;
+      var fields = SECTION_FIELDS[sectionType] || SECTION_FIELDS.custom;
+      var html = '';
+
+      fields.forEach(function(field) {
+        if (field.type === 'items') {
+          html += renderItemsField(field, data[field.key] || [], lang);
+        } else if (field.type === 'textarea') {
+          var value = field.isArray ? (data[field.key] || []).join('\n') : (data[field.key] || '');
+          html += '<div class="visual-field"><label class="visual-field__label">' + field.label + '</label>';
+          html += '<textarea class="field__textarea" data-field="' + field.key + '" data-is-array="' + (field.isArray || false) + '" rows="3">' + escapeHtml(value) + '</textarea></div>';
+        } else {
+          html += '<div class="visual-field"><label class="visual-field__label">' + field.label + '</label>';
+          html += '<input type="text" class="field__input" data-field="' + field.key + '" value="' + escapeHtml(data[field.key] || '') + '"></div>';
+        }
+      });
+
+      container.innerHTML = html;
+      container.querySelectorAll('.add-item-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var fieldKey = btn.dataset.field;
+          var fieldDef = fields.find(function(f) { return f.key === fieldKey; });
+          if (fieldDef) addItemRow(container, fieldKey, fieldDef.fields, {}, lang);
+        });
+      });
+      bindRemoveButtons(container);
+    }
+
+    function renderItemsField(field, items, lang) {
+      var html = '<div class="visual-field"><label class="visual-field__label">' + field.label + '</label>';
+      html += '<div class="items-list" data-field="' + field.key + '" data-fields="' + field.fields.join(',') + '">';
+      items.forEach(function(item, idx) { html += renderItemRow(field.key, field.fields, item, idx, lang); });
+      html += '</div><button type="button" class="add-item-btn" data-field="' + field.key + '">+ 항목 추가</button></div>';
+      return html;
+    }
+
+    function renderItemRow(fieldKey, fieldNames, item, idx, lang) {
+      var html = '<div class="item-row" data-idx="' + idx + '"><div class="item-row__header"><span class="item-row__title">항목 ' + (idx + 1) + '</span><button type="button" class="item-row__remove">삭제</button></div><div class="item-row__fields">';
+      fieldNames.forEach(function(fn) {
+        html += '<div class="field"><label class="field__label">' + fn + '</label><input type="text" class="field__input" data-item-field="' + fn + '" value="' + escapeHtml(item[fn] || '') + '"></div>';
+      });
+      html += '</div></div>';
+      return html;
+    }
+
+    function addItemRow(container, fieldKey, fieldNames, item, lang) {
+      var list = container.querySelector('.items-list[data-field="' + fieldKey + '"]');
+      var idx = list.querySelectorAll('.item-row').length;
+      var div = document.createElement('div');
+      div.innerHTML = renderItemRow(fieldKey, fieldNames, item, idx, lang);
+      list.appendChild(div.firstChild);
+      bindRemoveButtons(container);
+    }
+
+    function bindRemoveButtons(container) {
+      container.querySelectorAll('.item-row__remove').forEach(function(btn) {
+        btn.onclick = function() { btn.closest('.item-row').remove(); };
+      });
+    }
+
+    function collectVisualData(lang) {
+      var container = document.getElementById('visual-' + lang);
+      var data = {};
+      container.querySelectorAll('[data-field]').forEach(function(el) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          var key = el.dataset.field;
+          var value = el.value.trim();
+          if (el.dataset.isArray === 'true') data[key] = value.split('\n').filter(function(v) { return v.trim(); });
+          else if (value) data[key] = value;
+        }
+      });
+      container.querySelectorAll('.items-list').forEach(function(list) {
+        var fieldKey = list.dataset.field;
+        var items = [];
+        list.querySelectorAll('.item-row').forEach(function(row) {
+          var item = {};
+          row.querySelectorAll('[data-item-field]').forEach(function(input) {
+            if (input.value.trim()) item[input.dataset.itemField] = input.value.trim();
+          });
+          if (Object.keys(item).length > 0) items.push(item);
+        });
+        if (items.length > 0) data[fieldKey] = items;
+      });
+      return data;
+    }
+
+    document.getElementById('sectionType').addEventListener('change', function() {
+      ['ko', 'ja', 'zh-cn', 'zh-tw'].forEach(function(lang) {
+        var json = document.getElementById('json-' + lang);
+        try { var data = JSON.parse(json.value || '{}'); renderVisualEditor(lang, data); } catch(e) { renderVisualEditor(lang, {}); }
+      });
+    });
+
+    document.getElementById('imageUpload').addEventListener('change', async function(e) {
+      var file = e.target.files[0];
+      if (!file) return;
+      var formData = new FormData();
+      formData.append('image', file);
+      try {
+        var res = await fetch('/api/upload', { method: 'POST', headers: { 'Authorization': 'Bearer ' + getToken() }, body: formData });
+        var data = await res.json();
+        if (data.url) {
+          var urlEl = document.getElementById('uploadedUrl');
+          urlEl.textContent = data.url;
+          urlEl.style.display = 'block';
+          navigator.clipboard.writeText(data.url);
+          showToast('URL 복사됨: ' + data.url);
+        }
+      } catch(err) { showToast('업로드 실패'); }
+    });
+
+    async function saveSection() {
+      var sectionType = document.getElementById('sectionType').value;
+      var sectionKey = document.getElementById('sectionKey').value.trim();
+      var displayOrder = parseInt(document.getElementById('displayOrder').value) || 1;
+      var isVisible = document.getElementById('isVisible').checked ? 1 : 0;
+
+      if (!sectionKey) { showToast('섹션 키를 입력해주세요.'); return; }
+
+      var contents = {};
+      ['ko', 'ja', 'zh-cn', 'zh-tw'].forEach(function(lang) {
+        var fieldName = 'content_' + lang.replace('-', '_');
+        contents[fieldName] = editorMode === 'visual' ? JSON.stringify(collectVisualData(lang)) : document.getElementById('json-' + lang).value;
+      });
+
+      var payload = { page_slug: PAGE, section_type: sectionType, section_key: sectionKey, display_order: displayOrder, is_visible: isVisible, ...contents };
+
+      try {
+        var url = IS_NEW ? '/api/page-content' : '/api/page-content/' + SECTION_ID;
+        var res = await fetch(url, { method: IS_NEW ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getToken() }, body: JSON.stringify(payload) });
+        if (!res.ok) { var err = await res.json(); throw new Error(err.error || '저장 실패'); }
+        showToast(IS_NEW ? '섹션이 추가되었습니다.' : '저장되었습니다.');
+        setTimeout(function() { window.location.href = '/admin/pages/' + PAGE; }, 1000);
+      } catch(err) { showToast('오류: ' + err.message); }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ['ko', 'ja', 'zh-cn', 'zh-tw'].forEach(function(lang) {
+        var json = document.getElementById('json-' + lang);
+        try { var data = JSON.parse(json.value || '{}'); renderVisualEditor(lang, data); } catch(e) { renderVisualEditor(lang, {}); }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= currentCategory ? currentCategory.name + ' 칼럼' : '칼럼' %> | TONE's CLINIC 명동점</title>
+  <meta name="description" content="TONE's CLINIC 명동점의 피부과 전문의가 전하는 피부 건강 칼럼. 리프팅, 피부관리, 주사시술 등 전문 정보를 확인하세요.">
+  <link rel="canonical" href="https://tones-myeongdong.com/column/">
+  <link rel="alternate" type="application/rss+xml" title="TONE's CLINIC 명동점 칼럼 RSS" href="/column/rss.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    .column-hero {
+      background: #5C2A2E;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .column-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 400;
+      color: #DDCDBB;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    .column-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .column-categories {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .column-categories a {
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .column-categories a:hover,
+    .column-categories a.active {
+      background: #DDCDBB;
+      color: #5C2A2E;
+      border-color: #DDCDBB;
+    }
+
+    .column-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .column-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .column-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(23,38,23,0.12);
+    }
+
+    .column-card__thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #f0ece6;
+      overflow: hidden;
+    }
+
+    .column-card__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .column-card:hover .column-card__thumb img {
+      transform: scale(1.05);
+    }
+
+    .column-card__thumb .no-thumb {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 13px;
+    }
+
+    .column-card__body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-card__category {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7C7559;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .column-card__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #5C2A2E;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .column-card__excerpt {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .column-card__meta {
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 48px;
+    }
+
+    .pagination a,
+    .pagination span {
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #666;
+      transition: all 0.2s;
+    }
+
+    .pagination a:hover {
+      background: #f0f0f0;
+    }
+
+    .pagination .current {
+      background: #5C2A2E;
+      color: #DDCDBB;
+    }
+
+    .empty-columns {
+      text-align: center;
+      padding: 80px 20px;
+      color: #999;
+    }
+
+    .empty-columns p {
+      font-size: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .column-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .column-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .column-hero h1 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .column-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <span class="header__logo-main">TONE's CLINIC</span>
+        <span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="/" class="header__link">HOME</a></li>
+          <li><a href="/about.html" class="header__link">소개</a></li>
+          <li class="header__has-dropdown">
+            <a href="/treatments/" class="header__link">시술안내</a>
+            <ul class="header__dropdown">
+              <li><a href="/treatments/lifting.html">리프팅</a></li>
+              <li><a href="/treatments/skincare.html">피부관리</a></li>
+              <li><a href="/treatments/injection.html">주사시술</a></li>
+              <li><a href="/treatments/body.html">체형관리</a></li>
+            </ul>
+          </li>
+          <li><a href="/results.html" class="header__link">전후사진</a></li>
+          <li><a href="/column/" class="header__link active">칼럼</a></li>
+          <li><a href="/location.html" class="header__link">오시는 길</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="/reservation.html" class="header__cta">예약하기</a>
+        <button class="header__hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="column-hero">
+    <h1>COLUMN</h1>
+    <p>TONE's CLINIC 명동점 전문의가 전하는 피부 건강 이야기</p>
+    <div class="column-categories">
+      <a href="/column/" class="<%= !currentCategory ? 'active' : '' %>">전체</a>
+      <% categories.forEach(cat => { %>
+        <a href="/column/category/<%= cat.slug %>" class="<%= (currentCategory && currentCategory.id === cat.id) ? 'active' : '' %>"><%= cat.name %></a>
+      <% }); %>
+    </div>
+  </section>
+
+  <!-- Column List -->
+  <section class="column-section">
+    <% if (columns.length === 0) { %>
+      <div class="empty-columns">
+        <p>등록된 칼럼이 없습니다.</p>
+      </div>
+    <% } else { %>
+      <div class="column-grid">
+        <% columns.forEach(col => { %>
+          <a href="/column/<%= col.slug %>" class="column-card">
+            <div class="column-card__thumb">
+              <% if (col.thumbnail) { %>
+                <img src="<%= col.thumbnail %>" alt="<%= col.title %>" loading="lazy">
+              <% } else { %>
+                <div class="no-thumb">TONE's CLINIC</div>
+              <% } %>
+            </div>
+            <div class="column-card__body">
+              <span class="column-card__category"><%= col.category_name || '' %></span>
+              <h3 class="column-card__title"><%= col.title %></h3>
+              <p class="column-card__excerpt"><%= col.content ? col.content.replace(/<[^>]*>/g, '').substring(0, 100) : '' %></p>
+              <span class="column-card__meta"><%= new Date(col.created_at).toLocaleDateString('ko-KR') %></span>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+
+      <!-- Pagination -->
+      <% if (pagination.totalPages > 1) { %>
+        <div class="pagination">
+          <% if (pagination.page > 1) { %>
+            <a href="?page=<%= pagination.page - 1 %>">&laquo; 이전</a>
+          <% } %>
+          <% for (let i = 1; i <= pagination.totalPages; i++) { %>
+            <% if (i === pagination.page) { %>
+              <span class="current"><%= i %></span>
+            <% } else { %>
+              <a href="?page=<%= i %>"><%= i %></a>
+            <% } %>
+          <% } %>
+          <% if (pagination.page < pagination.totalPages) { %>
+            <a href="?page=<%= pagination.page + 1 %>">다음 &raquo;</a>
+          <% } %>
+        </div>
+      <% } %>
+    <% } %>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="footer__logo-main">TONE's CLINIC</span>
+            <span class="footer__logo-sub">MYEONGDONG</span>
+          </div>
+          <p class="footer__desc">서울 명동에 위치한 프리미엄 피부과<br>TONE's CLINIC 명동점입니다.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>시술안내</h4>
+            <a href="/treatments/lifting.html">리프팅</a>
+            <a href="/treatments/skincare.html">피부관리</a>
+            <a href="/treatments/injection.html">주사시술</a>
+            <a href="/treatments/body.html">체형관리</a>
+          </div>
+          <div class="footer__col">
+            <h4>병원안내</h4>
+            <a href="/about.html">병원소개</a>
+            <a href="/results.html">전후사진</a>
+            <a href="/column/">칼럼</a>
+          </div>
+          <div class="footer__col">
+            <h4>고객지원</h4>
+            <a href="/reservation.html">예약하기</a>
+            <a href="/location.html">오시는 길</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>디에이피부과의원 명동점 | 대표: OOO | 사업자등록번호: XXX-XX-XXXXX</p>
+          <p>서울특별시 중구 명동길 [상세주소] | 대표전화: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="/privacy.html">개인정보처리방침</a>
+          <a href="/terms.html">이용약관</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

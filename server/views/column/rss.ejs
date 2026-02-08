@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TONE's CLINIC 명동점 칼럼</title>
+    <link>https://tones-myeongdong.com/column/</link>
+    <description>TONE's CLINIC 명동점 전문의가 전하는 피부 건강 칼럼</description>
+    <language>ko</language>
+    <lastBuildDate><%= new Date().toUTCString() %></lastBuildDate>
+    <atom:link href="https://tones-myeongdong.com/column/rss.xml" rel="self" type="application/rss+xml"/>
+    <% columns.forEach(col => { %>
+    <item>
+      <title><![CDATA[<%= col.title %>]]></title>
+      <link>https://tones-myeongdong.com/column/<%= col.slug %></link>
+      <guid isPermaLink="true">https://tones-myeongdong.com/column/<%= col.slug %></guid>
+      <description><![CDATA[<%= col.content ? col.content.replace(/<[^>]*>/g, '').substring(0, 300) : '' %>]]></description>
+      <% if (col.category_name) { %>
+      <category><%= col.category_name %></category>
+      <% } %>
+      <author><%= col.author || 'OOO 원장' %></author>
+      <pubDate><%= new Date(col.created_at).toUTCString() %></pubDate>
+    </item>
+    <% }); %>
+  </channel>
+</rss>

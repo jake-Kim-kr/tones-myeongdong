@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专栏 | TONE's CLINIC 明洞店 | Doctor's Column</title>
+  <meta name="description" content="TONE's CLINIC 明洞店医疗团队分享的皮肤治疗真实故事。超声刀、热玛吉、肉毒素、玻尿酸等多种治疗的专业信息。">
+  <meta name="keywords" content="皮肤科专栏, 超声刀, 热玛吉, 肉毒素, 玻尿酸, 提升, 皮肤管理">
+  <meta property="og:title" content="专栏 | TONE's CLINIC 明洞店">
+  <meta property="og:description" content="关于皮肤，坦诚相告。TONE's CLINIC 明洞店 Doctor's Column">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tones-myeongdong.com/zh-cn/column/">
+  <link rel="canonical" href="https://tones-myeongdong.com/zh-cn/column/">
+
+  <!-- Fonts: Noto Sans SC + Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    body { font-family: 'Noto Sans SC', sans-serif; }
+    .page-hero__bg {
+      background: url('../../images/page-hero-bg.jpg') center/cover no-repeat;
+    }
+
+    /* Column List Grid Styles */
+    .column-list__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .column-list-card {
+      background: #fff;
+      border: 1px solid #E5E5E5;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .column-list-card:hover {
+      box-shadow: 0 8px 24px rgba(var(--green-rgb),0.12);
+      transform: translateY(-4px);
+    }
+    .column-list-card__image {
+      aspect-ratio: 16/9;
+      background: #F0F0F0;
+      position: relative;
+    }
+    .column-list-card__category {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #5C2A2E;
+      background: #DDCDBB;
+      letter-spacing: 0.5px;
+    }
+    .column-list-card__content {
+      padding: 20px;
+    }
+    .column-list-card__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #212121;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .column-list-card__excerpt {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .column-list-card__date {
+      display: block;
+      margin-top: 12px;
+      font-size: 11px;
+      color: #999;
+    }
+    @media (max-width: 1023px) {
+      .column-list__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 599px) {
+      .column-list__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="../index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="../index.html" class="header__link">HOME</a></li>
+          <li><a href="../about.html" class="header__link">介绍</a></li>
+          <li class="header__has-dropdown">
+            <a href="#treatments" class="header__link">治疗介绍</a>
+            <ul class="header__dropdown">
+              <li><a href="../treatments/lifting.html">提升</a></li>
+              <li><a href="../treatments/skincare.html">皮肤管理</a></li>
+              <li><a href="../treatments/injection.html">注射治疗</a></li>
+              <li><a href="../treatments/body.html">体型管理</a></li>
+            </ul>
+          </li>
+          <li><a href="../results.html" class="header__link">前后对比</a></li>
+          <li><a href="index.html" class="header__link active">专栏</a></li>
+          <li><a href="../location.html" class="header__link">交通指南</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="../reservation.html" class="header__cta">预约</a>
+        <div class="header__lang" aria-label="语言选择">
+          <span>CN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="/column/">한국어</a>
+            <a href="/ja/column/">日本語</a>
+            <a href="/zh-cn/column/" class="active">简体中文</a>
+            <a href="/zh-tw/column/">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="关闭菜单">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="../index.html" class="drawer__link">HOME</a>
+        <a href="../about.html" class="drawer__link">介绍</a>
+        <a href="../index.html#treatments" class="drawer__link">治疗介绍</a>
+        <a href="../results.html" class="drawer__link">前后对比</a>
+        <a href="index.html" class="drawer__link">专栏</a>
+        <a href="../location.html" class="drawer__link">交通指南</a>
+        <a href="../reservation.html" class="drawer__cta">预约</a>
+      </nav>
+      <div class="drawer__contact">
+        <p>02-XXXX-XXXX</p>
+        <p>首尔特别市 中区 明洞路</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">DOCTOR'S COLUMN</p>
+      <h1 class="page-hero__title reveal">Doctor's Column</h1>
+      <p class="page-hero__subtitle reveal">关于皮肤，坦诚相告</p>
+    </div>
+  </section>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="container">
+    <div class="breadcrumb reveal">
+      <a href="../index.html">HOME</a> <span> > </span> <span>专栏</span>
+    </div>
+  </div>
+
+  <!-- ========== COLUMN LIST SECTION ========== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="results__tabs reveal">
+        <button class="results__tab active" data-tab="all">全部</button>
+        <button class="results__tab" data-tab="lifting">提升</button>
+        <button class="results__tab" data-tab="skincare">皮肤管理</button>
+        <button class="results__tab" data-tab="injection">注射治疗</button>
+        <button class="results__tab" data-tab="body">体型管理</button>
+        <button class="results__tab" data-tab="philosophy">诊疗理念</button>
+      </div>
+
+      <div class="column-list__grid" id="columnGrid">
+        <div style="text-align:center;padding:40px;color:#999;">正在加载专栏...</div>
+      </div>
+      <script>
+        (function(){
+          var grid = document.getElementById('columnGrid');
+          var activeTab = 'all';
+
+          function formatDate(d) {
+            var dt = new Date(d);
+            var y = dt.getFullYear();
+            var m = ('0' + (dt.getMonth()+1)).slice(-2);
+            var day = ('0' + dt.getDate()).slice(-2);
+            return y + '.' + m + '.' + day;
+          }
+
+          function renderColumns(columns) {
+            if (!columns || columns.length === 0) {
+              grid.innerHTML = '<div style="text-align:center;padding:60px;color:#999;">暂无专栏文章。</div>';
+              return;
+            }
+            var html = '';
+            columns.forEach(function(col) {
+              var thumb = col.thumbnail ? 'background-image:url(' + col.thumbnail + ');background-size:cover;background-position:center;' : '';
+              html += '<a href="/column/' + col.slug + '" class="column-list-card" data-category="' + (col.category_slug || '') + '">' +
+                '<div class="column-list-card__image" style="' + thumb + '">' +
+                  '<span class="column-list-card__category">' + (col.category_name || '') + '</span>' +
+                '</div>' +
+                '<div class="column-list-card__content">' +
+                  '<h3 class="column-list-card__title">' + col.title + '</h3>' +
+                  '<p class="column-list-card__excerpt">' + (col.seo_desc || '') + '</p>' +
+                  '<span class="column-list-card__date">' + formatDate(col.created_at) + '</span>' +
+                '</div></a>';
+            });
+            grid.innerHTML = html;
+          }
+
+          function loadColumns(category) {
+            var url = '/api/columns?status=published&limit=50';
+            if (category && category !== 'all') url += '&category=' + category;
+            fetch(url)
+              .then(function(r){ return r.json(); })
+              .then(function(data){ renderColumns(data.columns || []); })
+              .catch(function(){ grid.innerHTML = '<div style="text-align:center;padding:60px;color:#999;">无法加载专栏。</div>'; });
+          }
+
+          // Tab filtering
+          document.querySelectorAll('.results__tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+              document.querySelectorAll('.results__tab').forEach(function(t){ t.classList.remove('active'); });
+              tab.classList.add('active');
+              activeTab = tab.getAttribute('data-tab');
+              loadColumns(activeTab);
+            });
+          });
+
+          loadColumns('all');
+        })();
+      </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">高端信赖体验，定制治疗的完成</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>治疗介绍</h4>
+            <a href="../treatments/lifting.html">提升</a>
+            <a href="../treatments/skincare.html">皮肤管理</a>
+            <a href="../treatments/injection.html">注射治疗</a>
+            <a href="../treatments/body.html">体型管理</a>
+          </div>
+          <div class="footer__col">
+            <h4>诊所</h4>
+            <a href="../about.html">诊所介绍</a>
+            <a href="../about.html#doctor">医疗团队</a>
+            <a href="../results.html">前后对比</a>
+            <a href="index.html">专栏</a>
+          </div>
+          <div class="footer__col">
+            <h4>客户服务</h4>
+            <a href="../reservation.html">预约</a>
+            <a href="../location.html">交通指南</a>
+            <a href="../pricing.html">自费项目说明</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="KakaoTalk">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Blog">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 5.4a3.4 3.4 0 00-4.8 0L4.2 16.8l-.6 3.6 3.6-.6L18.6 8.4m1.8-3a2.1 2.1 0 010 3L9 19.8"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>Tone's Clinic 明洞店 | 代表: OOO | 营业执照号: XXX-XX-XXXXX</p>
+          <p>首尔特别市 中区 明洞路 [详细地址] | 电话: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="../privacy.html">隐私政策</a>
+          <a href="../terms.html">使用条款</a>
+          <a href="../pricing.html">自费项目说明</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="KakaoTalk咨询">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">Kakao</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="电话咨询">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">电话</span>
+    </a>
+    <a href="../reservation.html" class="floating__btn floating__btn--consult" aria-label="快速咨询">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span class="floating__label">咨询</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

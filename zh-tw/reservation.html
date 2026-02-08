@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>預約 | TONE's CLINIC 明洞店</title>
+  <meta name="description" content="TONE's CLINIC 明洞店預約。通過專家諮詢預約為您推薦最適合的療程。">
+  <meta name="keywords" content="TONE's CLINIC, 明洞皮膚科, 預約, 諮詢預約">
+  <meta property="og:title" content="預約 | TONE's CLINIC 明洞店">
+  <meta property="og:description" content="通過專家諮詢預約為您推薦最適合的療程。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tones-myeongdong.com/zh-tw/reservation.html">
+  <link rel="canonical" href="https://tones-myeongdong.com/zh-tw/reservation.html">
+
+  <!-- Fonts: Noto Sans TC + Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { font-family: 'Noto Sans TC', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__link">HOME</a></li>
+          <li><a href="about.html" class="header__link">介紹</a></li>
+          <li class="header__has-dropdown">
+            <a href="#treatments" class="header__link">療程介紹</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">提升</a></li>
+              <li><a href="treatments/skincare.html">皮膚管理</a></li>
+              <li><a href="treatments/injection.html">注射療程</a></li>
+              <li><a href="treatments/body.html">體型管理</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#results" class="header__link">前後對比</a></li>
+          <li><a href="column/index.html" class="header__link">專欄</a></li>
+          <li><a href="index.html#location" class="header__link">交通指南</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">預約</a>
+        <div class="header__lang" aria-label="語言選擇">
+          <span>TW</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="/reservation.html">한국어</a>
+            <a href="/ja/reservation.html">日本語</a>
+            <a href="/zh-cn/reservation.html">简体中文</a>
+            <a href="/zh-tw/reservation.html" class="active">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="開啟選單">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="關閉選單">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="index.html" class="drawer__link">HOME</a>
+        <a href="about.html" class="drawer__link">介紹</a>
+        <a href="index.html#treatments" class="drawer__link">療程介紹</a>
+        <a href="index.html#results" class="drawer__link">前後對比</a>
+        <a href="column/index.html" class="drawer__link">專欄</a>
+        <a href="index.html#location" class="drawer__link">交通指南</a>
+        <a href="reservation.html" class="drawer__cta">預約</a>
+      </nav>
+      <div class="drawer__contact">
+        <p>02-XXXX-XXXX</p>
+        <p>首爾特別市 中區 明洞路</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb container">
+    <a href="index.html">HOME</a> <span>></span> <span>預約</span>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero" style="height: 50vh;">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">RESERVATION</p>
+      <h1 class="page-hero__title reveal">Reservation</h1>
+      <p class="page-hero__subtitle reveal">專家諮詢預約</p>
+    </div>
+  </section>
+
+  <!-- ========== RESERVATION FORM SECTION ========== -->
+  <section class="section reveal">
+    <div class="container">
+      <div style="max-width: 640px; margin: 0 auto;">
+
+        <!-- Step Indicator -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-3xl); position: relative;">
+          <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
+            <div style="width: 40px; height: 40px; margin: 0 auto var(--sp-sm); background: var(--green); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 16px;">1</div>
+            <div style="font-size: 13px; color: var(--gray-600); font-weight: 500;">選擇療程</div>
+          </div>
+          <div style="position: absolute; top: 20px; left: 20%; right: 20%; height: 2px; background: var(--gray-200); z-index: 1;"></div>
+          <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
+            <div style="width: 40px; height: 40px; margin: 0 auto var(--sp-sm); background: var(--gray-200); color: var(--gray-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 16px;">2</div>
+            <div style="font-size: 13px; color: var(--gray-500);">填寫資訊</div>
+          </div>
+          <div style="position: absolute; top: 20px; left: 70%; right: 10%; height: 2px; background: var(--gray-200); z-index: 1;"></div>
+          <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
+            <div style="width: 40px; height: 40px; margin: 0 auto var(--sp-sm); background: var(--gray-200); color: var(--gray-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 16px;">3</div>
+            <div style="font-size: 13px; color: var(--gray-500);">確認預約</div>
+          </div>
+        </div>
+
+        <!-- Reservation Form -->
+        <form id="reservationForm" style="margin-bottom: var(--sp-xl);">
+          <div class="form-group">
+            <label class="form-label">選擇療程 <span class="required">*</span></label>
+            <select name="category" class="form-select" required>
+              <option value="">請選擇療程類別</option>
+              <option value="lifting">提升</option>
+              <option value="skincare">皮膚管理</option>
+              <option value="injection">注射療程</option>
+              <option value="body">體型管理</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">詳細療程</label>
+            <select name="detail" class="form-select">
+              <option value="">請選擇詳細療程</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">希望日期 <span class="required">*</span></label>
+            <input type="date" name="date" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">希望時間 <span class="required">*</span></label>
+            <select name="time" class="form-select" required>
+              <option value="">請選擇時間</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">姓名 <span class="required">*</span></label>
+            <input type="text" name="name" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">聯絡電話 <span class="required">*</span></label>
+            <input type="tel" name="phone" class="form-input" placeholder="+886-XXX-XXX-XXX" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">電子郵件</label>
+            <input type="email" name="email" class="form-input" placeholder="example@email.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">其他需求</label>
+            <textarea name="message" class="form-textarea" placeholder="如有其他需求，請在此填寫。"></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="form-checkbox">
+              <input type="checkbox" name="privacy" id="privacy" required>
+              <label for="privacy" style="font-size: 13px; color: var(--gray-600); line-height: 1.6;">
+                同意個人資料收集和使用。 <a href="privacy.html" style="color: var(--green); text-decoration: underline;">查看詳情</a> <span class="required">*</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width: 100%;">提交預約</button>
+        </form>
+
+        <p style="text-align: center; font-size: 13px; color: var(--gray-500); line-height: 1.8;">
+          預約申請後將致電確認。採用100%預約制營運。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">高端信賴體驗，訂製療程的完成</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>療程介紹</h4>
+            <a href="treatments/lifting.html">提升</a>
+            <a href="treatments/skincare.html">皮膚管理</a>
+            <a href="treatments/injection.html">注射療程</a>
+            <a href="treatments/body.html">體型管理</a>
+          </div>
+          <div class="footer__col">
+            <h4>診所</h4>
+            <a href="about.html">診所介紹</a>
+            <a href="about.html#doctor">醫療團隊</a>
+            <a href="results.html">前後對比</a>
+            <a href="column/index.html">專欄</a>
+          </div>
+          <div class="footer__col">
+            <h4>客戶服務</h4>
+            <a href="reservation.html">預約</a>
+            <a href="location.html">交通指南</a>
+            <a href="pricing.html">自費項目說明</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="KakaoTalk">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Blog">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 5.4a3.4 3.4 0 00-4.8 0L4.2 16.8l-.6 3.6 3.6-.6L18.6 8.4m1.8-3a2.1 2.1 0 010 3L9 19.8"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>Tone's Clinic 明洞店 | 代表: OOO | 營業執照號: XXX-XX-XXXXX</p>
+          <p>首爾特別市 中區 明洞路 [詳細地址] | 電話: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">隱私政策</a>
+          <a href="terms.html">使用條款</a>
+          <a href="pricing.html">自費項目說明</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="KakaoTalk諮詢">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">Kakao</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="電話諮詢">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">電話</span>
+    </a>
+    <a href="reservation.html" class="floating__btn floating__btn--consult" aria-label="快速諮詢">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span class="floating__label">諮詢</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="返回頂部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

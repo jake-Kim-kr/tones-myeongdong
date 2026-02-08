@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시술 이미지 관리 | TONE's CLINIC 명동점</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #F5F3EF;
+      --bg-secondary: #fff;
+      --bg-tertiary: #FAFAF9;
+      --bg-card: #fff;
+      --bg-hover: #f0ebe5;
+      --bg-sidebar: #5C2A2E;
+      --border-color: #e8e4de;
+      --border-light: #f0ebe5;
+      --text-primary: #333;
+      --text-secondary: #666;
+      --text-muted: #999;
+      --accent: #5C2A2E;
+      --accent-hover: #4a2225;
+      --accent-light: #DDCDBB;
+      --accent-subtle: rgba(92, 42, 46, 0.08);
+      --success: #2E7D32;
+      --success-subtle: rgba(46, 125, 50, 0.08);
+      --danger: #C62828;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: var(--bg-sidebar); border-right: none; display: flex; flex-direction: column; z-index: 100; }
+    .sidebar__brand { padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .sidebar__logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--accent-light); text-decoration: none; letter-spacing: 1px; }
+    .sidebar__logo span { display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 10px; color: rgba(255,255,255,0.5); font-weight: 400; letter-spacing: 2px; margin-top: 4px; }
+    .sidebar__nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+    .nav-section { margin-bottom: 24px; }
+    .nav-section__title { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 12px; }
+    .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 14px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); transition: var(--transition); margin-bottom: 2px; }
+    .nav-link:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .nav-link.active { background: rgba(221,205,187,0.15); color: var(--accent-light); }
+    .nav-link__icon { width: 20px; height: 20px; opacity: 0.7; }
+    .nav-link.active .nav-link__icon { opacity: 1; }
+    .sidebar__footer { padding: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sidebar__user { display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); }
+    .sidebar__avatar { width: 36px; height: 36px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--bg-sidebar); }
+    .sidebar__user-info { flex: 1; }
+    .sidebar__user-name { font-size: 13px; font-weight: 500; color: #fff; }
+    .sidebar__user-role { font-size: 11px; color: rgba(255,255,255,0.5); }
+    .sidebar__logout { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .sidebar__logout:hover { background: rgba(255,255,255,0.1); color: #ff6b6b; }
+
+    /* Main */
+    .main { margin-left: 260px; min-height: 100vh; }
+    .header { position: sticky; top: 0; background: rgba(245, 243, 239, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 20px 40px; z-index: 50; }
+    .header__title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: -0.5px; color: var(--text-primary); margin-bottom: 6px; }
+    .header__desc { font-size: 14px; color: var(--text-secondary); }
+    .content { padding: 40px; }
+
+    /* Page Group */
+    .page-group { margin-bottom: 48px; }
+    .page-group__header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
+    .page-group__title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--accent); }
+    .page-group__badge { font-size: 11px; background: var(--accent-subtle); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+    .page-group__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+    /* Slot Card */
+    .slot-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: var(--transition); box-shadow: var(--shadow); }
+    .slot-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .slot-card__preview { aspect-ratio: 4/3; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .slot-card__preview img, .slot-card__preview video { width: 100%; height: 100%; object-fit: cover; }
+    .slot-card__preview .empty { font-size: 13px; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .slot-card__preview .empty svg { width: 32px; height: 32px; opacity: 0.5; }
+    .slot-card__body { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .slot-card__label { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+    /* Button */
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; font-size: 13px; font-weight: 500; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: var(--transition); text-decoration: none; font-family: inherit; }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: var(--accent-hover); }
+    .upload-input { display: none; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); padding: 16px 24px; border-radius: var(--radius-md); font-size: 14px; opacity: 0; transform: translateY(10px); transition: all 0.3s; z-index: 1000; box-shadow: var(--shadow); }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.success { border-color: var(--success); color: var(--success); }
+
+    <%
+    var pageNames = {
+      'lifting': '리프팅 카테고리',
+      'lifting/ulthera': '울쎄라',
+      'lifting/thermage': '써마지',
+      'lifting/hifu': 'HIFU',
+      'lifting/softwave': '소프트웨이브',
+      'skincare/bbl': 'BBL',
+      'skincare/laser-toning': '레이저토닝',
+      'skincare/skin-booster': '스킨부스터',
+      'injection/botox': '보톡스',
+      'injection/filler': '필러',
+      'injection/mulgwang': '물광주사',
+      'body/body-contouring': '바디 컨투어링',
+      'body/body-lifting': '바디 리프팅'
+    };
+    %>
+
+    @media (max-width: 1024px) { .sidebar { width: 220px; } .main { margin-left: 220px; } }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <a href="/admin" class="sidebar__logo">TONE'S CLINIC<span>ADMIN CONSOLE</span></a>
+    </div>
+    <nav class="sidebar__nav">
+      <div class="nav-section">
+        <div class="nav-section__title">콘텐츠</div>
+        <a href="/admin/pages" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          페이지 관리
+        </a>
+        <a href="/admin/treatments" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          시술 콘텐츠
+        </a>
+        <a href="/admin/columns" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          칼럼
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section__title">미디어</div>
+        <a href="/admin/images" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          사이트 이미지
+        </a>
+        <a href="/admin/treatment-images" class="nav-link active">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          시술 이미지
+        </a>
+        <a href="/admin/results" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+          전후사진
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section__title">설정</div>
+        <a href="/admin/settings" class="nav-link">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          테마 설정
+        </a>
+        <a href="/" class="nav-link" target="_blank">
+          <svg class="nav-link__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          사이트 보기
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar">A</div>
+        <div class="sidebar__user-info"><div class="sidebar__user-name">관리자</div><div class="sidebar__user-role">Administrator</div></div>
+        <button class="sidebar__logout" onclick="logout()" title="로그아웃">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <h1 class="header__title">시술 이미지 관리</h1>
+      <p class="header__desc">각 시술 페이지의 장비 이미지, 카테고리 이미지 등을 관리합니다.</p>
+    </header>
+
+    <div class="content">
+      <% Object.keys(grouped).forEach(function(page) { %>
+        <div class="page-group">
+          <div class="page-group__header">
+            <h2 class="page-group__title"><%= pageNames[page] || page %></h2>
+            <span class="page-group__badge"><%= grouped[page].length %>개 슬롯</span>
+          </div>
+          <div class="page-group__grid">
+            <% grouped[page].forEach(function(img) { %>
+              <div class="slot-card" data-id="<%= img.id %>">
+                <div class="slot-card__preview">
+                  <% if (img.image_url) { %>
+                    <% if (img.image_url.match(/\.(mp4|mov|webm)$/i)) { %>
+                      <video src="<%= img.image_url %>" muted loop playsinline></video>
+                    <% } else { %>
+                      <img src="<%= img.image_url %>" alt="<%= img.label %>">
+                    <% } %>
+                  <% } else { %>
+                    <span class="empty">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                      이미지 없음
+                    </span>
+                  <% } %>
+                </div>
+                <div class="slot-card__body">
+                  <span class="slot-card__label"><%= img.label %></span>
+                  <label class="btn btn--primary">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                    변경
+                    <input type="file" class="upload-input" accept="image/*,video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm" onchange="uploadImage(this, <%= img.id %>)">
+                  </label>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function getToken() {
+      var m = document.cookie.match(/token=([^;]+)/);
+      return m ? m[1] : null;
+    }
+
+    function showToast(msg, isSuccess) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast show' + (isSuccess ? ' success' : '');
+      setTimeout(function() { t.className = 'toast'; }, 2500);
+    }
+
+    function logout() {
+      document.cookie = 'token=; path=/; max-age=0';
+      window.location.href = '/admin/login';
+    }
+
+    async function uploadImage(input, id) {
+      var file = input.files[0];
+      if (!file) return;
+
+      var formData = new FormData();
+      formData.append('image', file);
+
+      try {
+        var uploadRes = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + getToken() },
+          body: formData
+        });
+        var uploadData = await uploadRes.json();
+        if (!uploadRes.ok) throw new Error(uploadData.error);
+
+        var updateRes = await fetch('/api/treatment-images/' + id, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getToken() },
+          body: JSON.stringify({ image_url: uploadData.url })
+        });
+        if (!updateRes.ok) throw new Error('업데이트 실패');
+
+        var card = document.querySelector('[data-id="' + id + '"]');
+        var preview = card.querySelector('.slot-card__preview');
+
+        if (file.type.startsWith('video/')) {
+          preview.innerHTML = '<video src="' + uploadData.url + '" muted loop playsinline></video>';
+        } else {
+          preview.innerHTML = '<img src="' + uploadData.url + '" alt="">';
+        }
+
+        showToast('이미지가 변경되었습니다.', true);
+      } catch (err) {
+        showToast('오류: ' + err.message, false);
+      }
+      input.value = '';
+    }
+  </script>
+</body>
+</html>

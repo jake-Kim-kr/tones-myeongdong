@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>介紹 | TONE's CLINIC 明洞店 | 高端皮膚科診所</title>
+  <meta name="description" content="TONE's CLINIC 明洞店介紹。高端皮膚療程、1:1訂製診療、正品認證設備提供的信賴體驗。">
+  <meta name="keywords" content="TONE's CLINIC, 明洞皮膚科, 診所介紹, 醫療團隊介紹">
+  <meta property="og:title" content="介紹 | TONE's CLINIC 明洞店">
+  <meta property="og:description" content="高端信賴體驗，訂製療程的完成。TONE's CLINIC 明洞店介紹。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tones-myeongdong.com/zh-tw/about.html">
+  <link rel="canonical" href="https://tones-myeongdong.com/zh-tw/about.html">
+
+  <!-- Fonts: Noto Sans TC + Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Noto Sans TC', sans-serif; }
+    .page-hero__bg {
+      background: url('../images/page-hero-bg.jpg') center/cover no-repeat;
+    }
+    .about__image-placeholder {
+      background: url('../images/about-clinic.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    .doctor-card__image-placeholder {
+      background: url('../images/column-editorial.jpg') center/cover no-repeat;
+      color: transparent;
+    }
+    .facility-item { color: transparent; }
+    .facility-item:nth-child(1) { background: url('../images/about-clinic.jpg') center/cover no-repeat; }
+    .facility-item:nth-child(2) { background: url('../images/clinic-interior.jpg') center/cover no-repeat; }
+    .facility-item:nth-child(3) { background: url('../images/treatment-skincare.jpg') center/cover no-repeat; }
+    .facility-item:nth-child(4) { background: url('../images/treatment-lifting.jpg') center/cover no-repeat; }
+    .facility-item:nth-child(5) { background: url('../images/column-editorial.jpg') center/cover no-repeat; }
+    .facility-item:nth-child(6) { background: url('../images/page-hero-bg.jpg') center/cover no-repeat; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__link">HOME</a></li>
+          <li><a href="about.html" class="header__link active">介紹</a></li>
+          <li class="header__has-dropdown">
+            <a href="#treatments" class="header__link">療程介紹</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">提升</a></li>
+              <li><a href="treatments/skincare.html">皮膚管理</a></li>
+              <li><a href="treatments/injection.html">注射療程</a></li>
+              <li><a href="treatments/body.html">體型管理</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#results" class="header__link">前後對比</a></li>
+          <li><a href="column/index.html" class="header__link">專欄</a></li>
+          <li><a href="index.html#location" class="header__link">交通指南</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">預約</a>
+        <div class="header__lang" aria-label="語言選擇">
+          <span>TW</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="/about.html">한국어</a>
+            <a href="/ja/about.html">日本語</a>
+            <a href="/zh-cn/about.html">简体中文</a>
+            <a href="/zh-tw/about.html" class="active">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="開啟選單">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="關閉選單">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="index.html" class="drawer__link">HOME</a>
+        <a href="about.html" class="drawer__link">介紹</a>
+        <a href="index.html#treatments" class="drawer__link">療程介紹</a>
+        <a href="index.html#results" class="drawer__link">前後對比</a>
+        <a href="column/index.html" class="drawer__link">專欄</a>
+        <a href="index.html#location" class="drawer__link">交通指南</a>
+        <a href="reservation.html" class="drawer__cta">預約</a>
+      </nav>
+      <div class="drawer__contact">
+        <p>02-XXXX-XXXX</p>
+        <p>首爾特別市 中區 明洞路</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb container">
+    <a href="index.html">HOME</a> <span>></span> <span>介紹</span>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">TONE's CLINIC MYEONGDONG</p>
+      <h1 class="page-hero__title reveal">About TONE's</h1>
+      <p class="page-hero__subtitle reveal">TONE's CLINIC MYEONGDONG</p>
+    </div>
+  </section>
+
+  <!-- ========== CLINIC INTRODUCTION SECTION ========== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text">
+          <span class="section-label">ABOUT TONE's MYEONGDONG</span>
+          <h2 class="section-title">
+            高端皮膚科診所<br>
+            <em>TONE's 明洞店</em>
+          </h2>
+          <p class="about__desc">
+            TONE's CLINIC 明洞店是提供高端皮膚療程的專業診所。
+            精準分析每位顧客的皮膚狀態和需求，
+            設計最適合的訂製療程。
+          </p>
+          <p class="about__desc">
+            我們超越單純的療程提供，以與顧客的深厚信任為基礎，
+            通過1:1專屬系統實現個人化訂製診療。
+            在正品認證設備和私密療程室中
+            提供最優質的體驗。
+          </p>
+          <p class="about__desc">
+            以自然和安全為最優先，
+            細心關注看不見的細節，
+            實踐TONE's獨有的理念。
+          </p>
+        </div>
+        <div class="about__image">
+          <div class="about__image-frame">
+            <div class="about__image-placeholder">
+              <span>診所內部照片</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHILOSOPHY SECTION ========== -->
+  <section class="section section--gray reveal">
+    <div class="container">
+      <div class="results__header">
+        <span class="section-label">OUR PHILOSOPHY</span>
+        <h2 class="section-title">TONE's獨有的 <em>差異化體驗</em></h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">1:1專屬系統</h3>
+          <p class="feature-card__desc">
+            為每一位顧客從專屬諮詢到療程，
+            以個人化訂製設計提供最佳效果。
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3z"></path>
+              <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3z"></path>
+              <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3z"></path>
+              <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">正品認證設備</h3>
+          <p class="feature-card__desc">
+            只使用超聲刀、熱瑪吉等正品認證設備，
+            保證安全有效的療程。
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">私密療程室</h3>
+          <p class="feature-card__desc">
+            獨立療程室和私密動線，
+            提供舒適安全的療程環境。
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">訂製療程設計</h3>
+          <p class="feature-card__desc">
+            基於精準診斷為個人設計訂製療程，
+            創造自然滿意的效果。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOCTOR SECTION ========== -->
+  <section class="section reveal" id="doctor">
+    <div class="container">
+      <div class="results__header">
+        <span class="section-label">MEDICAL TEAM</span>
+        <h2 class="section-title">醫療團隊 <em>介紹</em></h2>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-card__image">
+          <div class="doctor-card__image-placeholder">
+            <span>醫療團隊照片</span>
+          </div>
+        </div>
+        <div class="doctor-card__info">
+          <h3 class="doctor-card__name">OOO 院長</h3>
+          <p class="doctor-card__title-text">代表院長</p>
+          <ul class="doctor-card__credentials">
+            <li><strong>學歷</strong></li>
+            <li>OO大學醫學院畢業</li>
+            <li>OO大學研究所醫學博士</li>
+            <li></li>
+            <li><strong>經歷</strong></li>
+            <li>OO大學附屬醫院皮膚科住院醫師</li>
+            <li>OO大學附屬醫院皮膚科臨床講師</li>
+            <li>OO皮膚科院長</li>
+            <li></li>
+            <li><strong>資格認證</strong></li>
+            <li>韓國皮膚科學會正式會員</li>
+            <li>韓國美容整形外科學會正式會員</li>
+            <li>超聲刀正品認證醫師</li>
+            <li>熱瑪吉正品認證醫師</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FACILITY SECTION ========== -->
+  <section class="section section--gray reveal">
+    <div class="container">
+      <div class="results__header">
+        <span class="section-label">FACILITIES</span>
+        <h2 class="section-title">PREMIUM <em>EXPERIENCES</em></h2>
+        <p class="treatments__subtitle">高端設施提供的最優質體驗</p>
+      </div>
+      <div class="facility-grid">
+        <div class="facility-item reveal">
+          <span>診療室</span>
+        </div>
+        <div class="facility-item reveal">
+          <span>候診室</span>
+        </div>
+        <div class="facility-item reveal">
+          <span>諮詢室</span>
+        </div>
+        <div class="facility-item reveal">
+          <span>療程室</span>
+        </div>
+        <div class="facility-item reveal">
+          <span>休息室</span>
+        </div>
+        <div class="facility-item reveal">
+          <span>恢復室</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner reveal">
+    <div class="container">
+      <h2 class="cta-banner__title">需要專家諮詢嗎？</h2>
+      <p class="cta-banner__desc">通過1:1訂製諮詢為您推薦最適合的療程</p>
+      <a href="reservation.html" class="btn btn--primary">預約</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">高端信賴體驗，訂製療程的完成</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>療程介紹</h4>
+            <a href="treatments/lifting.html">提升</a>
+            <a href="treatments/skincare.html">皮膚管理</a>
+            <a href="treatments/injection.html">注射療程</a>
+            <a href="treatments/body.html">體型管理</a>
+          </div>
+          <div class="footer__col">
+            <h4>診所</h4>
+            <a href="about.html">診所介紹</a>
+            <a href="about.html#doctor">醫療團隊</a>
+            <a href="results.html">前後對比</a>
+            <a href="column/index.html">專欄</a>
+          </div>
+          <div class="footer__col">
+            <h4>客戶服務</h4>
+            <a href="reservation.html">預約</a>
+            <a href="location.html">交通指南</a>
+            <a href="pricing.html">自費項目說明</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="KakaoTalk">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.56 31.56 0 000 12a31.56 31.56 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.56 31.56 0 0024 12a31.56 31.56 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Blog">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 5.4a3.4 3.4 0 00-4.8 0L4.2 16.8l-.6 3.6 3.6-.6L18.6 8.4m1.8-3a2.1 2.1 0 010 3L9 19.8"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>Tone's Clinic 明洞店 | 代表: OOO | 營業執照號: XXX-XX-XXXXX</p>
+          <p>首爾特別市 中區 明洞路 [詳細地址] | 電話: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">隱私政策</a>
+          <a href="terms.html">使用條款</a>
+          <a href="pricing.html">自費項目說明</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="KakaoTalk諮詢">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">Kakao</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="電話諮詢">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">電話</span>
+    </a>
+    <a href="reservation.html" class="floating__btn floating__btn--consult" aria-label="快速諮詢">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span class="floating__label">諮詢</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="返回頂部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    (function(){
+      fetch('/api/site-images')
+        .then(function(r){ return r.json(); })
+        .then(function(images){
+          var mapping = {
+            'about-hero': '.page-hero__bg',
+            'about-clinic-photo': '.about__image-placeholder',
+            'about-doctor': '.doctor-card__image-placeholder',
+            'about-facility-1': '.facility-item:nth-child(1)',
+            'about-facility-2': '.facility-item:nth-child(2)',
+            'about-facility-3': '.facility-item:nth-child(3)',
+            'about-facility-4': '.facility-item:nth-child(4)',
+            'about-facility-5': '.facility-item:nth-child(5)',
+            'about-facility-6': '.facility-item:nth-child(6)'
+          };
+          images.forEach(function(img){
+            if (!img.image_url || !mapping[img.slot]) return;
+            var el = document.querySelector(mapping[img.slot]);
+            if (!el) return;
+            if (img.media_type === 'video') {
+              var video = document.createElement('video');
+              video.src = img.image_url;
+              video.autoplay = true;
+              video.loop = true;
+              video.muted = true;
+              video.playsInline = true;
+              video.setAttribute('playsinline', '');
+              video.setAttribute('webkit-playsinline', '');
+              video.setAttribute('autoplay', '');
+              video.setAttribute('muted', '');
+              video.setAttribute('loop', '');
+              video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+              el.style.position = 'relative';
+              el.style.overflow = 'hidden';
+              el.insertBefore(video, el.firstChild);
+              video.play().catch(function(){});
+            } else {
+              el.style.backgroundImage = "url('" + img.image_url + "')";
+              el.style.backgroundSize = 'cover';
+              el.style.backgroundPosition = 'center';
+            }
+          });
+        })
+        .catch(function(){});
+    })();
+  </script>
+</body>
+</html>
