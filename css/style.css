@@ -1049,6 +1049,198 @@ ul { list-style: none; }
 .results__more { text-align: center; margin-top: var(--sp-2xl); }
 
 /* ============================================================
+   TRANSPARENCY
+   ============================================================ */
+.transparency {
+  padding: var(--sp-section) 0;
+  background: var(--gray-50);
+}
+.transparency__header {
+  text-align: center;
+  margin-bottom: var(--sp-2xl);
+}
+.transparency__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-xl);
+}
+@media (max-width: 768px) {
+  .transparency__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-lg);
+  }
+}
+.transparency__card {
+  background: var(--white);
+  padding: var(--sp-xl);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.transparency__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.transparency__icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--sp-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--green-rgb), 0.1);
+  border-radius: 50%;
+  color: var(--green);
+}
+.transparency__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: var(--sp-sm);
+}
+.transparency__desc {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews {
+  padding: var(--sp-section) 0;
+}
+.reviews__header {
+  text-align: center;
+  margin-bottom: var(--sp-2xl);
+}
+.reviews__slider {
+  overflow: hidden;
+}
+.reviews__track {
+  display: flex;
+  gap: var(--sp-lg);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--sp-md);
+}
+.reviews__track::-webkit-scrollbar {
+  height: 6px;
+}
+.reviews__track::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 3px;
+}
+.reviews__track::-webkit-scrollbar-thumb {
+  background: var(--green-light);
+  border-radius: 3px;
+}
+.review-card {
+  flex: 0 0 340px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: var(--sp-xl);
+  scroll-snap-align: start;
+}
+@media (max-width: 768px) {
+  .review-card {
+    flex: 0 0 280px;
+  }
+}
+.review-card__stars {
+  color: #F5A623;
+  font-size: 16px;
+  margin-bottom: var(--sp-md);
+  letter-spacing: 2px;
+}
+.review-card__text {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: var(--sp-lg);
+  min-height: 80px;
+}
+.review-card__author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--gray-100);
+}
+.review-card__name {
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.review-card__treatment {
+  font-size: 13px;
+  color: var(--green);
+  background: rgba(var(--green-rgb), 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* ============================================================
+   CEO MESSAGE
+   ============================================================ */
+.ceo-message {
+  padding: 0;
+}
+.ceo-message__bg {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+  padding: var(--sp-section) 0;
+  position: relative;
+  overflow: hidden;
+}
+.ceo-message__bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: rgba(255,255,255,0.03);
+  transform: rotate(15deg);
+}
+.ceo-message__content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.ceo-message__title {
+  font-family: var(--font-kr);
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: var(--sp-xl);
+}
+.ceo-message__text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  line-height: 2;
+  margin-bottom: var(--sp-xl);
+}
+.ceo-message__signature {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ceo-message__name {
+  font-size: 14px;
+  color: var(--beige);
+  font-weight: 500;
+}
+.ceo-message__position {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============================================================
    COLUMN
    ============================================================ */
 .column { padding: 0; }
