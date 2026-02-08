@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>品牌故事 | TONE's CLINIC 明洞店</title>
+  <meta name="description" content="介绍TONE's CLINIC的品牌理念与价值。提供刺激五感的高端体验。">
+  <meta name="keywords" content="TONE's CLINIC, 品牌故事, 诊所理念, 高端体验">
+  <link rel="canonical" href="https://tones-myeongdong.com/zh-cn/story.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+    .page-hero__bg { background: url('../images/page-hero-bg.jpg') center/cover no-repeat; }
+
+    /* Story Sections */
+    .story-section {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-section:nth-child(even) { background: var(--green-light); }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .story-section:nth-child(even) .story-grid { direction: rtl; }
+    .story-section:nth-child(even) .story-grid > * { direction: ltr; }
+    .story-image {
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .story-content { max-width: 500px; }
+    .story-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .story-label svg { width: 20px; height: 20px; }
+    .story-title {
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--green-dark);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 768px) { .story-title { font-size: 28px; } }
+    .story-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .story-desc {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .story-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .story-feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(193,167,138,0.15);
+      border-radius: 30px;
+      font-size: 13px;
+      color: var(--green-dark);
+    }
+    .story-feature svg { color: var(--gold); width: 16px; height: 16px; }
+
+    /* Hero Quote */
+    .story-hero-quote {
+      text-align: center;
+      padding: 80px 20px;
+      background: var(--green);
+      color: #fff;
+    }
+    .story-hero-quote__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) { .story-hero-quote__text { font-size: 24px; } }
+    .story-hero-quote__author {
+      margin-top: 24px;
+      font-size: 14px;
+      opacity: 0.7;
+      letter-spacing: 2px;
+    }
+
+    /* Timeline */
+    .story-timeline {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .timeline-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .timeline-list {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+    @media (max-width: 768px) {
+      .timeline-list::before { left: 20px; }
+    }
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .timeline-item { padding-left: 50px; gap: 20px; }
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+    @media (max-width: 768px) {
+      .timeline-item::before { left: 20px; }
+    }
+    .timeline-date {
+      flex: 1;
+      text-align: right;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    @media (max-width: 768px) {
+      .timeline-date { display: none; }
+    }
+    .timeline-content {
+      flex: 1;
+      padding-left: 20px;
+    }
+    .timeline-content h4 {
+      font-size: 18px;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .timeline-content p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .timeline-content .mobile-date {
+      display: none;
+      font-size: 14px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 768px) {
+      .timeline-content .mobile-date { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header header--light" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__link">HOME</a></li>
+          <li class="header__has-dropdown">
+            <a href="about.html" class="header__link active">介绍</a>
+            <ul class="header__dropdown">
+              <li><a href="about.html">诊所介绍</a></li>
+              <li><a href="story.html">品牌故事</a></li>
+              <li><a href="gallery.html">参观</a></li>
+              <li><a href="equipment.html">治疗设备</a></li>
+            </ul>
+          </li>
+          <li class="header__has-dropdown">
+            <a href="treatments/index.html" class="header__link">治疗介绍</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">提升</a></li>
+              <li><a href="treatments/skincare.html">皮肤管理</a></li>
+              <li><a href="treatments/injection.html">注射治疗</a></li>
+              <li><a href="treatments/body.html">体型管理</a></li>
+            </ul>
+          </li>
+          <li><a href="results.html" class="header__link">前后对比</a></li>
+          <li><a href="schedule.html" class="header__link">诊疗日程</a></li>
+          <li><a href="location.html" class="header__link">交通指南</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">预约</a>
+        <div class="header__lang" aria-label="语言选择">
+          <span>CN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="../story.html">한국어</a>
+            <a href="../ja/story.html">日本語</a>
+            <a href="story.html" class="active">简体中文</a>
+            <a href="../zh-tw/story.html">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="关闭菜单">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="index.html" class="drawer__link">HOME</a>
+        <a href="about.html" class="drawer__link">诊所介绍</a>
+        <a href="story.html" class="drawer__link active">品牌故事</a>
+        <a href="gallery.html" class="drawer__link">参观</a>
+        <a href="equipment.html" class="drawer__link">治疗设备</a>
+        <a href="treatments/index.html" class="drawer__link">治疗介绍</a>
+        <a href="results.html" class="drawer__link">前后对比</a>
+        <a href="schedule.html" class="drawer__link">诊疗日程</a>
+        <a href="location.html" class="drawer__link">交通指南</a>
+        <a href="reservation.html" class="drawer__cta">预约</a>
+      </nav>
+      <div class="drawer__lang">
+        <span>Language</span>
+        <div class="drawer__lang-links">
+          <a href="../story.html">한국어</a>
+          <a href="../ja/story.html">日本語</a>
+          <a href="story.html" class="active">简体中文</a>
+          <a href="../zh-tw/story.html">繁體中文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb container">
+    <a href="index.html">HOME</a> <span>></span> <a href="about.html">介绍</a> <span>></span> <span>品牌故事</span>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">TONE's CLINIC MYEONGDONG</p>
+      <h1 class="page-hero__title reveal">Brand Story</h1>
+      <p class="page-hero__subtitle reveal">刺激五感的高端体验</p>
+    </div>
+  </section>
+
+  <!-- ========== HERO QUOTE ========== -->
+  <div class="story-hero-quote reveal">
+    <p class="story-hero-quote__text">
+      "引领精致之美的TONE's CLINIC。<br>
+      超越治愈的休憩，超越治疗的体验。"
+    </p>
+    <p class="story-hero-quote__author">— TONE's CLINIC PHILOSOPHY —</p>
+  </div>
+
+  <!-- ========== STORY SECTIONS ========== -->
+
+  <!-- 1. Private Space -->
+  <section class="story-section reveal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="../images/story-private.jpg" alt="私密空间" onerror="this.parentElement.style.background='var(--green-light)'">
+        </div>
+        <div class="story-content">
+          <div class="story-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            PRIVATE
+          </div>
+          <h2 class="story-title">私密 <em>定制空间</em></h2>
+          <p class="story-desc">
+            更加细致沟通，只专注于您的空间。
+            独立治疗室和私密动线，为您提供舒适安全的
+            治疗环境。
+          </p>
+          <div class="story-features">
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              独立治疗室
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              私密动线
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              1:1专属系统
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Sound System -->
+  <section class="story-section reveal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="../images/story-sound.jpg" alt="音响系统" onerror="this.parentElement.style.background='var(--green)'">
+        </div>
+        <div class="story-content">
+          <div class="story-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            SOUND
+          </div>
+          <h2 class="story-title">疗愈 <em>音响系统</em></h2>
+          <p class="story-desc">
+            高端音响系统让您在治疗过程中也能享受舒适的休憩。
+            伴随平静的音乐，心灵也得到治愈。
+          </p>
+          <div class="story-features">
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              高端音响
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              疗愈音乐
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Premium Bedding -->
+  <section class="story-section reveal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="../images/story-bedding.jpg" alt="高端寝具" onerror="this.parentElement.style.background='var(--green-light)'">
+        </div>
+        <div class="story-content">
+          <div class="story-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+            COMFORT
+          </div>
+          <h2 class="story-title">酒店级 <em>高端寝具</em></h2>
+          <p class="story-desc">
+            使用五星级酒店同款高级寝具，在治疗过程中也能
+            享受舒适休憩。细腻的触感呵护您的身心。
+          </p>
+          <div class="story-features">
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              五星级酒店寝具
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              高端床品
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Fragrance System -->
+  <section class="story-section reveal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="../images/story-scent.jpg" alt="香氛系统" onerror="this.parentElement.style.background='var(--green)'">
+        </div>
+        <div class="story-content">
+          <div class="story-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-4v8h4c1.1 0 2-.9 2-2v-7c0-4.97-4.03-9-9-9z"/></svg>
+            SCENT
+          </div>
+          <h2 class="story-title">特别的 <em>香氛系统</em></h2>
+          <p class="story-desc">
+            与高端香水品牌合作开发的专属香氛，
+            从您踏入诊所的那一刻起，便开启特别的体验。
+            淡雅的香气带来心灵的安宁。
+          </p>
+          <div class="story-features">
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              专属香氛
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              香薰疗法
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Genuine Equipment -->
+  <section class="story-section reveal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="../images/story-genuine.jpg" alt="正品设备" onerror="this.parentElement.style.background='var(--green-light)'">
+        </div>
+        <div class="story-content">
+          <div class="story-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82 1.89 3.2L12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"/></svg>
+            GENUINE
+          </div>
+          <h2 class="story-title">正品·正量·精准的 <em>治疗理念</em></h2>
+          <p class="story-desc">
+            仅使用FDA认证正品设备，以正确的能量和
+            精准的治疗保证最佳效果。
+            所有设备定期接受检查和校准。
+          </p>
+          <div class="story-features">
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              FDA认证设备
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              定期检查
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              认证书齐全
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Hygiene System -->
+  <section class="story-section reveal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="../images/story-clean.jpg" alt="卫生系统" onerror="this.parentElement.style.background='var(--green)'">
+        </div>
+        <div class="story-content">
+          <div class="story-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.36 2.72L20.78 4.14l-1.42 1.42 2.12 2.12-1.42 1.42-2.12-2.12-1.42 1.42-2.12-2.12 1.42-1.42-2.12-2.12 1.42-1.42 2.12 2.12zm-9.9 9.9l2.12 2.12 1.42-1.42-2.12-2.12 1.42-1.42 2.12 2.12 1.42-1.42-2.12-2.12 1.42-1.42 2.12 2.12 1.42-1.42L11.27 2.05 2.05 11.27l6.36 6.36z"/></svg>
+            HYGIENE
+          </div>
+          <h2 class="story-title">严格的 <em>卫生管理</em></h2>
+          <p class="story-desc">
+            医疗级灭菌消毒系统，对所有治疗器具和
+            空间进行严格管理。在安全清洁的环境中
+            安心接受治疗。
+          </p>
+          <div class="story-features">
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              灭菌消毒
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              一次性器具
+            </span>
+            <span class="story-feature">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              空气净化
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">高端信赖体验，定制治疗的完成</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>介绍</h4>
+            <a href="about.html">诊所介绍</a>
+            <a href="story.html">品牌故事</a>
+            <a href="gallery.html">参观</a>
+            <a href="equipment.html">治疗设备</a>
+          </div>
+          <div class="footer__col">
+            <h4>治疗介绍</h4>
+            <a href="treatments/lifting.html">提升</a>
+            <a href="treatments/skincare.html">皮肤管理</a>
+            <a href="treatments/injection.html">注射治疗</a>
+            <a href="treatments/body.html">体型管理</a>
+          </div>
+          <div class="footer__col">
+            <h4>客户服务</h4>
+            <a href="reservation.html">预约</a>
+            <a href="schedule.html">诊疗日程</a>
+            <a href="location.html">交通指南</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__hours">
+        <h4>营业时间</h4>
+        <div class="footer__hours-grid">
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周一 - 周四</span>
+            <span class="footer__hours-time">10:00 ~ 19:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周五</span>
+            <span class="footer__hours-time">10:00 ~ 21:00</span>
+            <span class="footer__hours-badge">夜间诊疗</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周六</span>
+            <span class="footer__hours-time">10:00 ~ 16:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周日·节假日</span>
+            <span class="footer__hours-time">休息</span>
+          </div>
+        </div>
+        <p class="footer__hours-notice">※ 100%预约制运营。</p>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>TONE's CLINIC 明洞店 | 代表: OOO | 营业执照号: XXX-XX-XXXXX</p>
+          <p>首尔特别市 中区 明洞路 [详细地址] | 电话: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">隐私政策</a>
+          <a href="terms.html">使用条款</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--naver" aria-label="Naver预约" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+      <span class="floating__label">Naver预约</span>
+    </a>
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="KakaoTalk咨询">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">KakaoTalk</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="电话咨询">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">电话咨询</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <!-- ========== MOBILE BOTTOM TAB ========== -->
+  <nav class="mobile-tab" id="mobileTab">
+    <a href="index.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>首页</span>
+    </a>
+    <a href="reservation.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+      <span>预约</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span>电话</span>
+    </a>
+    <a href="#" class="mobile-tab__item" id="kakaoChat">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span>KakaoTalk</span>
+    </a>
+    <a href="location.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span>位置</span>
+    </a>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

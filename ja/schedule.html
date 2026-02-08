@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>診療スケジュール | TONE's CLINIC 明洞店</title>
+  <meta name="description" content="TONE's CLINIC 明洞店の診療スケジュールのご案内。ご来院前に診療スケジュールをご確認ください。">
+  <meta name="keywords" content="診療スケジュール, 休診日, 夜間診療, TONE's CLINIC">
+  <link rel="canonical" href="https://tones-myeongdong.com/ja/schedule.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .page-hero__bg { background: url('../images/page-hero-bg.jpg') center/cover no-repeat; }
+    .schedule-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .schedule-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-bottom: var(--sp-2xl);
+    }
+    .schedule-card__header {
+      background: var(--green);
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    .schedule-card__month {
+      font-size: 14px;
+      letter-spacing: 2px;
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+    .schedule-card__title {
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .schedule-card__body { padding: 40px; }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .schedule-table th,
+    .schedule-table td {
+      padding: 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table th {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .schedule-table td {
+      font-size: 15px;
+      color: var(--text);
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table .day { font-weight: 600; color: var(--green-dark); }
+    .schedule-table .time { color: var(--gold); font-weight: 500; }
+    .schedule-table .closed { color: #e74c3c; }
+    .schedule-table .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      margin-left: 8px;
+    }
+    .schedule-notice {
+      background: var(--green-light);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+    .schedule-notice__title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .schedule-notice__title svg { color: var(--gold); }
+    .schedule-notice__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .schedule-notice__list li {
+      font-size: 14px;
+      color: var(--text);
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .schedule-notice__list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+    .holiday-section {
+      margin-top: var(--sp-2xl);
+    }
+    .holiday-section h3 {
+      font-size: 20px;
+      color: var(--green-dark);
+      margin-bottom: var(--sp-lg);
+      text-align: center;
+    }
+    .holiday-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 768px) { .holiday-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .holiday-grid { grid-template-columns: 1fr; } }
+    .holiday-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .holiday-item__date {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+    .holiday-item__name {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .cta-section {
+      text-align: center;
+      margin-top: var(--sp-3xl);
+      padding: 40px;
+      background: var(--green);
+      border-radius: 20px;
+      color: #fff;
+    }
+    .cta-section h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+    .cta-section .btn {
+      background: var(--gold);
+      color: var(--green-dark);
+    }
+    .cta-section .btn:hover {
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header header--light" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__link">HOME</a></li>
+          <li class="header__has-dropdown">
+            <a href="about.html" class="header__link">紹介</a>
+            <ul class="header__dropdown">
+              <li><a href="about.html">クリニック紹介</a></li>
+              <li><a href="story.html">ブランドストーリー</a></li>
+              <li><a href="gallery.html">見学</a></li>
+              <li><a href="equipment.html">施術機器</a></li>
+            </ul>
+          </li>
+          <li class="header__has-dropdown">
+            <a href="treatments/index.html" class="header__link">施術案内</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">リフティング</a></li>
+              <li><a href="treatments/skincare.html">スキンケア</a></li>
+              <li><a href="treatments/injection.html">注射施術</a></li>
+              <li><a href="treatments/body.html">ボディケア</a></li>
+            </ul>
+          </li>
+          <li><a href="results.html" class="header__link">ビフォーアフター</a></li>
+          <li><a href="schedule.html" class="header__link active">診療スケジュール</a></li>
+          <li><a href="location.html" class="header__link">アクセス</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">予約する</a>
+        <div class="header__lang" aria-label="言語選択">
+          <span>JP</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="../schedule.html">한국어</a>
+            <a href="schedule.html" class="active">日本語</a>
+            <a href="../zh-cn/schedule.html">简体中文</a>
+            <a href="../zh-tw/schedule.html">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="メニューを開く">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="メニューを閉じる">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="index.html" class="drawer__link">HOME</a>
+        <a href="about.html" class="drawer__link">クリニック紹介</a>
+        <a href="treatments/index.html" class="drawer__link">施術案内</a>
+        <a href="results.html" class="drawer__link">ビフォーアフター</a>
+        <a href="schedule.html" class="drawer__link active">診療スケジュール</a>
+        <a href="location.html" class="drawer__link">アクセス</a>
+        <a href="reservation.html" class="drawer__cta">予約する</a>
+      </nav>
+      <div class="drawer__lang">
+        <span>Language</span>
+        <div class="drawer__lang-links">
+          <a href="../schedule.html">한국어</a>
+          <a href="schedule.html" class="active">日本語</a>
+          <a href="../zh-cn/schedule.html">简体中文</a>
+          <a href="../zh-tw/schedule.html">繁體中文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb container">
+    <a href="index.html">HOME</a> <span>></span> <span>診療スケジュール</span>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">TONE's CLINIC MYEONGDONG</p>
+      <h1 class="page-hero__title reveal">Schedule</h1>
+      <p class="page-hero__subtitle reveal">ご来院前に診療スケジュールをご確認ください</p>
+    </div>
+  </section>
+
+  <!-- ========== SCHEDULE SECTION ========== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="schedule-container">
+        <div class="results__header" style="text-align: center; margin-bottom: var(--sp-2xl);">
+          <span class="section-label">SCHEDULE</span>
+          <h2 class="section-title">診療時間 <em>ご案内</em></h2>
+          <p style="color: var(--text-light); margin-top: var(--sp-md);">
+            あなたを覚え、変わらないケアが続くように、<br>
+            ご来院前に診療スケジュールをご確認ください。
+          </p>
+        </div>
+
+        <!-- Schedule Card -->
+        <div class="schedule-card">
+          <div class="schedule-card__header">
+            <p class="schedule-card__month">WEEKLY SCHEDULE</p>
+            <h3 class="schedule-card__title">通常診療時間</h3>
+          </div>
+          <div class="schedule-card__body">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>曜日</th>
+                  <th>診療時間</th>
+                  <th>昼休み</th>
+                  <th>備考</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="day">月曜日</td>
+                  <td class="time">10:00 - 19:00</td>
+                  <td>13:00 - 14:00</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="day">火曜日</td>
+                  <td class="time">10:00 - 19:00</td>
+                  <td>13:00 - 14:00</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="day">水曜日</td>
+                  <td class="time">10:00 - 19:00</td>
+                  <td>13:00 - 14:00</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="day">木曜日</td>
+                  <td class="time">10:00 - 19:00</td>
+                  <td>13:00 - 14:00</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="day">金曜日</td>
+                  <td class="time">10:00 - 21:00</td>
+                  <td>13:00 - 14:00</td>
+                  <td><span class="badge">夜間診療</span></td>
+                </tr>
+                <tr>
+                  <td class="day">土曜日</td>
+                  <td class="time">10:00 - 16:00</td>
+                  <td>昼休みなし</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="day">日曜日</td>
+                  <td class="closed">休診</td>
+                  <td>-</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="schedule-notice">
+              <h4 class="schedule-notice__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                ご案内事項
+              </h4>
+              <ul class="schedule-notice__list">
+                <li>100%予約制で運営しており、事前予約が必要です。</li>
+                <li>予約変更・キャンセルは最低1日前までにご連絡ください。</li>
+                <li>昼休み中は電話相談ができない場合があります。</li>
+                <li>祝日は休診となり、別途お知らせいたします。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Holiday Section -->
+        <div class="holiday-section reveal">
+          <h3>2026年 休診日のご案内</h3>
+          <div class="holiday-grid">
+            <div class="holiday-item">
+              <p class="holiday-item__date">1/1</p>
+              <p class="holiday-item__name">元日</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">1/28-30</p>
+              <p class="holiday-item__name">旧正月連休</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">3/1</p>
+              <p class="holiday-item__name">三一節</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">5/5</p>
+              <p class="holiday-item__name">こどもの日</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">6/6</p>
+              <p class="holiday-item__name">顕忠日</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">8/15</p>
+              <p class="holiday-item__name">光復節</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">9/17-19</p>
+              <p class="holiday-item__name">秋夕連休</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">10/3</p>
+              <p class="holiday-item__name">開天節</p>
+            </div>
+            <div class="holiday-item">
+              <p class="holiday-item__date">12/25</p>
+              <p class="holiday-item__name">クリスマス</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section reveal">
+          <h3>予約お問い合わせ</h3>
+          <p>オンラインで簡単にご予約いただくか、お電話でお問い合わせください。</p>
+          <a href="reservation.html" class="btn">オンライン予約する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">プレミアムな信頼の体験、オーダーメイド施術の完成</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>紹介</h4>
+            <a href="about.html">クリニック紹介</a>
+            <a href="story.html">ブランドストーリー</a>
+            <a href="gallery.html">見学</a>
+            <a href="equipment.html">施術機器</a>
+          </div>
+          <div class="footer__col">
+            <h4>施術案内</h4>
+            <a href="treatments/lifting.html">リフティング</a>
+            <a href="treatments/skincare.html">スキンケア</a>
+            <a href="treatments/injection.html">注射施術</a>
+            <a href="treatments/body.html">ボディケア</a>
+          </div>
+          <div class="footer__col">
+            <h4>お客様サポート</h4>
+            <a href="reservation.html">予約する</a>
+            <a href="schedule.html">診療スケジュール</a>
+            <a href="location.html">アクセス</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__hours">
+        <h4>診療時間</h4>
+        <div class="footer__hours-grid">
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">月 - 木</span>
+            <span class="footer__hours-time">10:00 ~ 19:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">金曜日</span>
+            <span class="footer__hours-time">10:00 ~ 21:00</span>
+            <span class="footer__hours-badge">夜間診療</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">土曜日</span>
+            <span class="footer__hours-time">10:00 ~ 16:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">日・祝日</span>
+            <span class="footer__hours-time">休診</span>
+          </div>
+        </div>
+        <p class="footer__hours-notice">※ 100%予約制で運営しております。</p>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>TONE's CLINIC 明洞店 | 代表: OOO | 事業者登録番号: XXX-XX-XXXXX</p>
+          <p>ソウル特別市 中区 明洞ギル [詳細住所] | 代表電話: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">プライバシーポリシー</a>
+          <a href="terms.html">利用規約</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--naver" aria-label="ネイバー予約" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+      <span class="floating__label">ネイバー予約</span>
+    </a>
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="カカオトーク相談">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">カカオ相談</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="電話相談">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">電話相談</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="トップへ">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <!-- ========== MOBILE BOTTOM TAB ========== -->
+  <nav class="mobile-tab" id="mobileTab">
+    <a href="index.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>ホーム</span>
+    </a>
+    <a href="reservation.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+      <span>予約</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span>電話</span>
+    </a>
+    <a href="#" class="mobile-tab__item" id="kakaoChat">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span>カカオ</span>
+    </a>
+    <a href="location.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span>場所</span>
+    </a>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

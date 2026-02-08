@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>治疗设备 | TONE's CLINIC 明洞店 | 正品认证设备</title>
+  <meta name="description" content="介绍TONE's CLINIC明洞店的治疗设备。仅使用超声刀、热玛吉等FDA认证正品设备。">
+  <meta name="keywords" content="超声刀, 热玛吉, 提升设备, 皮肤科设备, FDA认证">
+  <meta property="og:title" content="治疗设备 | TONE's CLINIC 明洞店">
+  <meta property="og:description" content="使用FDA认证正品设备，提供安全有效的治疗。">
+  <link rel="canonical" href="https://tones-myeongdong.com/zh-cn/equipment.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+    .page-hero__bg { background: url('../images/page-hero-bg.jpg') center/cover no-repeat; }
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: var(--sp-2xl);
+    }
+    @media (max-width: 1024px) { .equipment-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .equipment-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .equipment-grid { grid-template-columns: 1fr; } }
+    .equipment-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all var(--dur) var(--ease);
+      text-decoration: none;
+      color: inherit;
+    }
+    .equipment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    .equipment-card__image {
+      aspect-ratio: 4/3;
+      background: var(--green-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .equipment-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur) var(--ease);
+    }
+    .equipment-card:hover .equipment-card__image img { transform: scale(1.08); }
+    .equipment-card__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-size: 10px;
+      font-weight: 600;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .equipment-card__content { padding: 20px; }
+    .equipment-card__category {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .equipment-card__name {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .equipment-card__desc {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .equipment-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-2xl);
+      align-items: center;
+      margin-top: var(--sp-3xl);
+      padding-top: var(--sp-3xl);
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 768px) { .equipment-feature { grid-template-columns: 1fr; } }
+    .equipment-feature__image {
+      aspect-ratio: 4/3;
+      background: var(--green-light);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .equipment-feature__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .equipment-feature__content h3 {
+      font-size: 28px;
+      color: var(--green-dark);
+      margin-bottom: var(--sp-md);
+    }
+    .equipment-feature__content p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: var(--sp-lg);
+    }
+    .equipment-feature__list {
+      list-style: none;
+      padding: 0;
+    }
+    .equipment-feature__list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text);
+    }
+    .equipment-feature__list li svg { color: var(--gold); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header header--light" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__link">HOME</a></li>
+          <li class="header__has-dropdown">
+            <a href="about.html" class="header__link active">介绍</a>
+            <ul class="header__dropdown">
+              <li><a href="about.html">诊所介绍</a></li>
+              <li><a href="story.html">品牌故事</a></li>
+              <li><a href="gallery.html">参观</a></li>
+              <li><a href="equipment.html">治疗设备</a></li>
+            </ul>
+          </li>
+          <li class="header__has-dropdown">
+            <a href="treatments/index.html" class="header__link">治疗介绍</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">提升</a></li>
+              <li><a href="treatments/skincare.html">皮肤管理</a></li>
+              <li><a href="treatments/injection.html">注射治疗</a></li>
+              <li><a href="treatments/body.html">体型管理</a></li>
+            </ul>
+          </li>
+          <li><a href="results.html" class="header__link">前后对比</a></li>
+          <li><a href="schedule.html" class="header__link">诊疗日程</a></li>
+          <li><a href="location.html" class="header__link">交通指南</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">预约</a>
+        <div class="header__lang" aria-label="语言选择">
+          <span>CN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="../equipment.html">한국어</a>
+            <a href="../ja/equipment.html">日本語</a>
+            <a href="equipment.html" class="active">简体中文</a>
+            <a href="../zh-tw/equipment.html">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="打开菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="关闭菜单">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="index.html" class="drawer__link">HOME</a>
+        <a href="about.html" class="drawer__link">诊所介绍</a>
+        <a href="story.html" class="drawer__link">品牌故事</a>
+        <a href="gallery.html" class="drawer__link">参观</a>
+        <a href="equipment.html" class="drawer__link active">治疗设备</a>
+        <a href="treatments/index.html" class="drawer__link">治疗介绍</a>
+        <a href="results.html" class="drawer__link">前后对比</a>
+        <a href="schedule.html" class="drawer__link">诊疗日程</a>
+        <a href="location.html" class="drawer__link">交通指南</a>
+        <a href="reservation.html" class="drawer__cta">预约</a>
+      </nav>
+      <div class="drawer__lang">
+        <span>Language</span>
+        <div class="drawer__lang-links">
+          <a href="../equipment.html">한국어</a>
+          <a href="../ja/equipment.html">日本語</a>
+          <a href="equipment.html" class="active">简体中文</a>
+          <a href="../zh-tw/equipment.html">繁體中文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb container">
+    <a href="index.html">HOME</a> <span>></span> <a href="about.html">介绍</a> <span>></span> <span>治疗设备</span>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">TONE's CLINIC MYEONGDONG</p>
+      <h1 class="page-hero__title reveal">Equipment</h1>
+      <p class="page-hero__subtitle reveal">正品认证设备，安全治疗</p>
+    </div>
+  </section>
+
+  <!-- ========== EQUIPMENT INTRO ========== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="results__header" style="text-align: center;">
+        <span class="section-label">EQUIPMENT</span>
+        <h2 class="section-title">正品·正量·精准的 <em>治疗理念</em></h2>
+        <p style="max-width: 700px; margin: var(--sp-lg) auto 0; color: var(--text-light); line-height: 1.8;">
+          TONE's CLINIC仅使用FDA认证的正品设备。<br>
+          以正确的能量和精准的治疗，为您提供最佳效果。
+        </p>
+      </div>
+
+      <!-- Equipment Grid -->
+      <div class="equipment-grid">
+        <a href="treatments/lifting/ulthera.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-ulthera.jpg" alt="超声刀" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">FDA认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">超声刀 Ulthera</h3>
+            <p class="equipment-card__desc">高强度聚焦超声波，提升至SMAS层</p>
+          </div>
+        </a>
+        <a href="treatments/lifting/thermage.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-thermage.jpg" alt="热玛吉 FLX" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">FDA认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">热玛吉 FLX</h3>
+            <p class="equipment-card__desc">RF射频促进胶原再生，改善弹性</p>
+          </div>
+        </a>
+        <a href="treatments/lifting/softwave.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-softwave.jpg" alt="Softwave" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">正品认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">Softwave</h3>
+            <p class="equipment-card__desc">温和提升，改善皮肤弹性</p>
+          </div>
+        </a>
+        <a href="treatments/lifting/hifu.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-hifu.jpg" alt="HIFU" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">正品认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">HIFU</h3>
+            <p class="equipment-card__desc">高强度聚焦超声波提升</p>
+          </div>
+        </a>
+        <a href="treatments/skincare/laser-toning.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-laser.jpg" alt="激光嫩肤" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">正品认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Skin Care</p>
+            <h3 class="equipment-card__name">激光嫩肤</h3>
+            <p class="equipment-card__desc">色素治疗，改善肤色</p>
+          </div>
+        </a>
+        <a href="treatments/skincare/bbl.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-bbl.jpg" alt="BBL" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">FDA认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Skin Care</p>
+            <h3 class="equipment-card__name">BBL宽带光</h3>
+            <p class="equipment-card__desc">光子治疗促进皮肤再生</p>
+          </div>
+        </a>
+        <a href="treatments/skincare/skin-booster.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-skinbooster.jpg" alt="水光针" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">正品认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Skin Care</p>
+            <h3 class="equipment-card__name">水光针</h3>
+            <p class="equipment-card__desc">皮肤补水，增强弹性</p>
+          </div>
+        </a>
+        <a href="treatments/body.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="../images/equipment-body.jpg" alt="塑身设备" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">正品认证</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Body</p>
+            <h3 class="equipment-card__name">身体塑形</h3>
+            <p class="equipment-card__desc">体型管理，改善橘皮组织</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Feature Section -->
+      <div class="equipment-feature reveal">
+        <div class="equipment-feature__image">
+          <img src="../images/equipment-certification.jpg" alt="正品认证" onerror="this.style.display='none'">
+        </div>
+        <div class="equipment-feature__content">
+          <h3>正品认证系统</h3>
+          <p>
+            TONE's CLINIC拥有所有设备的正品认证书，
+            通过定期检查和校准，保持设备最佳状态。
+          </p>
+          <ul class="equipment-feature__list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              使用FDA认证正品设备
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              定期设备检查与维护
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              正确能量，安全治疗
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              治疗前可确认认证
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">高端信赖体验，定制治疗的完成</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>介绍</h4>
+            <a href="about.html">诊所介绍</a>
+            <a href="story.html">品牌故事</a>
+            <a href="gallery.html">参观</a>
+            <a href="equipment.html">治疗设备</a>
+          </div>
+          <div class="footer__col">
+            <h4>治疗介绍</h4>
+            <a href="treatments/lifting.html">提升</a>
+            <a href="treatments/skincare.html">皮肤管理</a>
+            <a href="treatments/injection.html">注射治疗</a>
+            <a href="treatments/body.html">体型管理</a>
+          </div>
+          <div class="footer__col">
+            <h4>客户服务</h4>
+            <a href="reservation.html">预约</a>
+            <a href="schedule.html">诊疗日程</a>
+            <a href="location.html">交通指南</a>
+            <a href="pricing.html">非医保项目说明</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="KakaoTalk">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__hours">
+        <h4>营业时间</h4>
+        <div class="footer__hours-grid">
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周一 - 周四</span>
+            <span class="footer__hours-time">10:00 ~ 19:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周五</span>
+            <span class="footer__hours-time">10:00 ~ 21:00</span>
+            <span class="footer__hours-badge">夜间诊疗</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周六</span>
+            <span class="footer__hours-time">10:00 ~ 16:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">周日·节假日</span>
+            <span class="footer__hours-time">休息</span>
+          </div>
+        </div>
+        <p class="footer__hours-notice">※ 100%预约制运营。</p>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>TONE's CLINIC 明洞店 | 代表: OOO | 营业执照号: XXX-XX-XXXXX</p>
+          <p>首尔特别市 中区 明洞路 [详细地址] | 电话: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">隐私政策</a>
+          <a href="terms.html">使用条款</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--naver" aria-label="Naver预约" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+      <span class="floating__label">Naver预约</span>
+    </a>
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="KakaoTalk咨询">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">KakaoTalk</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="电话咨询">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">电话咨询</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="返回顶部">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <!-- ========== MOBILE BOTTOM TAB ========== -->
+  <nav class="mobile-tab" id="mobileTab">
+    <a href="index.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>首页</span>
+    </a>
+    <a href="reservation.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+      <span>预约</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span>电话</span>
+    </a>
+    <a href="#" class="mobile-tab__item" id="kakaoChat">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span>KakaoTalk</span>
+    </a>
+    <a href="location.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span>位置</span>
+    </a>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
