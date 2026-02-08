@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시술 장비 | TONE's CLINIC 명동점 | 정품 인증 장비</title>
+  <meta name="description" content="TONE's CLINIC 명동점의 시술 장비를 소개합니다. 울쎄라, 써마지 등 FDA 승인 정품 장비만을 사용합니다.">
+  <meta name="keywords" content="울쎄라, 써마지, 리프팅 장비, 피부과 장비, FDA 승인">
+  <meta property="og:title" content="시술 장비 | TONE's CLINIC 명동점">
+  <meta property="og:description" content="FDA 승인 정품 장비로 안전하고 효과적인 시술을 제공합니다.">
+  <link rel="canonical" href="https://tones-myeongdong.com/equipment.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .page-hero__bg { background: url('images/page-hero-bg.jpg') center/cover no-repeat; }
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: var(--sp-2xl);
+    }
+    @media (max-width: 1024px) { .equipment-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .equipment-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .equipment-grid { grid-template-columns: 1fr; } }
+    .equipment-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all var(--dur) var(--ease);
+      text-decoration: none;
+      color: inherit;
+    }
+    .equipment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    .equipment-card__image {
+      aspect-ratio: 4/3;
+      background: var(--green-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .equipment-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur) var(--ease);
+    }
+    .equipment-card:hover .equipment-card__image img { transform: scale(1.08); }
+    .equipment-card__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-size: 10px;
+      font-weight: 600;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .equipment-card__content { padding: 20px; }
+    .equipment-card__category {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .equipment-card__name {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .equipment-card__desc {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .equipment-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-2xl);
+      align-items: center;
+      margin-top: var(--sp-3xl);
+      padding-top: var(--sp-3xl);
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 768px) { .equipment-feature { grid-template-columns: 1fr; } }
+    .equipment-feature__image {
+      aspect-ratio: 4/3;
+      background: var(--green-light);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .equipment-feature__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .equipment-feature__content h3 {
+      font-size: 28px;
+      color: var(--green-dark);
+      margin-bottom: var(--sp-md);
+    }
+    .equipment-feature__content p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: var(--sp-lg);
+    }
+    .equipment-feature__list {
+      list-style: none;
+      padding: 0;
+    }
+    .equipment-feature__list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text);
+    }
+    .equipment-feature__list li svg { color: var(--gold); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header header--light" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-main">TONE'S CLINIC</span><span class="header__logo-sub">MYEONGDONG</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__link">HOME</a></li>
+          <li class="header__has-dropdown">
+            <a href="about.html" class="header__link active">소개</a>
+            <ul class="header__dropdown">
+              <li><a href="about.html">클리닉 소개</a></li>
+              <li><a href="story.html">브랜딩 스토리</a></li>
+              <li><a href="gallery.html">둘러보기</a></li>
+              <li><a href="equipment.html">시술 장비</a></li>
+            </ul>
+          </li>
+          <li class="header__has-dropdown">
+            <a href="treatments/index.html" class="header__link">시술안내</a>
+            <ul class="header__dropdown">
+              <li><a href="treatments/lifting.html">리프팅</a></li>
+              <li><a href="treatments/skincare.html">피부관리</a></li>
+              <li><a href="treatments/injection.html">주사시술</a></li>
+              <li><a href="treatments/body.html">체형관리</a></li>
+            </ul>
+          </li>
+          <li><a href="results.html" class="header__link">전후사진</a></li>
+          <li><a href="schedule.html" class="header__link">진료일정</a></li>
+          <li><a href="location.html" class="header__link">오시는 길</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="reservation.html" class="header__cta">예약하기</a>
+        <div class="header__lang" aria-label="언어 선택">
+          <span>KR</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div class="header__lang-dropdown">
+            <a href="equipment.html" class="active">한국어</a>
+            <a href="ja/equipment.html">日本語</a>
+            <a href="zh-cn/equipment.html">简体中文</a>
+            <a href="zh-tw/equipment.html">繁體中文</a>
+          </div>
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="drawer">
+    <div class="drawer__overlay" id="drawerOverlay"></div>
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <span class="drawer__logo">TONE'S CLINIC</span>
+        <button class="drawer__close" id="drawerClose" aria-label="메뉴 닫기">&times;</button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="index.html" class="drawer__link">HOME</a>
+        <a href="about.html" class="drawer__link">클리닉 소개</a>
+        <a href="story.html" class="drawer__link">브랜딩 스토리</a>
+        <a href="gallery.html" class="drawer__link">둘러보기</a>
+        <a href="equipment.html" class="drawer__link active">시술 장비</a>
+        <a href="treatments/index.html" class="drawer__link">시술안내</a>
+        <a href="results.html" class="drawer__link">전후사진</a>
+        <a href="schedule.html" class="drawer__link">진료일정</a>
+        <a href="location.html" class="drawer__link">오시는 길</a>
+        <a href="reservation.html" class="drawer__cta">예약하기</a>
+      </nav>
+      <div class="drawer__lang">
+        <span>Language</span>
+        <div class="drawer__lang-links">
+          <a href="equipment.html" class="active">한국어</a>
+          <a href="ja/equipment.html">日本語</a>
+          <a href="zh-cn/equipment.html">简体中文</a>
+          <a href="zh-tw/equipment.html">繁體中文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BREADCRUMB ========== -->
+  <div class="breadcrumb container">
+    <a href="index.html">HOME</a> <span>></span> <a href="about.html">소개</a> <span>></span> <span>시술 장비</span>
+  </div>
+
+  <!-- ========== PAGE HERO ========== -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="page-hero__content">
+      <p class="page-hero__label reveal">TONE's CLINIC MYEONGDONG</p>
+      <h1 class="page-hero__title reveal">Equipment</h1>
+      <p class="page-hero__subtitle reveal">정품 인증 장비로 안전한 시술을</p>
+    </div>
+  </section>
+
+  <!-- ========== EQUIPMENT INTRO ========== -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="results__header" style="text-align: center;">
+        <span class="section-label">EQUIPMENT</span>
+        <h2 class="section-title">정품·정량·정확의 <em>시술 철학</em></h2>
+        <p style="max-width: 700px; margin: var(--sp-lg) auto 0; color: var(--text-light); line-height: 1.8;">
+          TONE's CLINIC은 FDA 승인을 받은 정품 장비만을 사용합니다.<br>
+          정량의 에너지와 정확한 시술로 최상의 결과를 제공합니다.
+        </p>
+      </div>
+
+      <!-- Equipment Grid -->
+      <div class="equipment-grid">
+        <a href="treatments/lifting/ulthera.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-ulthera.jpg" alt="울쎄라" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">FDA 승인</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">울쎄라 Ulthera</h3>
+            <p class="equipment-card__desc">고강도 집속 초음파로 SMAS층까지 리프팅</p>
+          </div>
+        </a>
+        <a href="treatments/lifting/thermage.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-thermage.jpg" alt="써마지 FLX" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">FDA 승인</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">써마지 FLX</h3>
+            <p class="equipment-card__desc">RF 고주파로 콜라겐 재생 및 탄력 개선</p>
+          </div>
+        </a>
+        <a href="treatments/lifting/softwave.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-softwave.jpg" alt="소프트웨이브" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">정품 인증</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">소프트웨이브</h3>
+            <p class="equipment-card__desc">부드러운 리프팅과 피부 탄력 개선</p>
+          </div>
+        </a>
+        <a href="treatments/lifting/hifu.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-hifu.jpg" alt="하이푸" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">정품 인증</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Lifting</p>
+            <h3 class="equipment-card__name">하이푸 HIFU</h3>
+            <p class="equipment-card__desc">고강도 집속 초음파 리프팅</p>
+          </div>
+        </a>
+        <a href="treatments/skincare/laser-toning.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-laser.jpg" alt="레이저토닝" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">정품 인증</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Skin Care</p>
+            <h3 class="equipment-card__name">레이저 토닝</h3>
+            <p class="equipment-card__desc">색소 치료 및 피부톤 개선</p>
+          </div>
+        </a>
+        <a href="treatments/skincare/bbl.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-bbl.jpg" alt="BBL" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">FDA 승인</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Skin Care</p>
+            <h3 class="equipment-card__name">BBL 브로드밴드라이트</h3>
+            <p class="equipment-card__desc">광 치료를 통한 피부 재생</p>
+          </div>
+        </a>
+        <a href="treatments/skincare/skin-booster.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-skinbooster.jpg" alt="스킨부스터" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">정품 인증</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Skin Care</p>
+            <h3 class="equipment-card__name">스킨부스터</h3>
+            <p class="equipment-card__desc">피부 보습과 탄력 증진</p>
+          </div>
+        </a>
+        <a href="treatments/body.html" class="equipment-card reveal">
+          <div class="equipment-card__image">
+            <img src="images/equipment-body.jpg" alt="바디장비" onerror="this.style.display='none'">
+            <span class="equipment-card__badge">정품 인증</span>
+          </div>
+          <div class="equipment-card__content">
+            <p class="equipment-card__category">Body</p>
+            <h3 class="equipment-card__name">바디 컨투어링</h3>
+            <p class="equipment-card__desc">체형 관리 및 셀룰라이트 개선</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Feature Section -->
+      <div class="equipment-feature reveal">
+        <div class="equipment-feature__image">
+          <img src="images/equipment-certification.jpg" alt="정품 인증" onerror="this.style.display='none'">
+        </div>
+        <div class="equipment-feature__content">
+          <h3>정품 인증 시스템</h3>
+          <p>
+            TONE's CLINIC은 모든 장비의 정품 인증서를 보유하고 있으며,
+            정기적인 점검과 캘리브레이션을 통해 최상의 상태를 유지합니다.
+          </p>
+          <ul class="equipment-feature__list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              FDA 승인 정품 장비 사용
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              정기적인 장비 점검 및 관리
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              정량의 에너지로 안전한 시술
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              시술 전 인증 확인 가능
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">TONE'S CLINIC</span>
+          <span class="footer__branch">MYEONGDONG</span>
+          <p class="footer__philosophy">프리미엄 신뢰의 경험, 맞춤 시술의 완성</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>소개</h4>
+            <a href="about.html">클리닉 소개</a>
+            <a href="story.html">브랜딩 스토리</a>
+            <a href="gallery.html">둘러보기</a>
+            <a href="equipment.html">시술 장비</a>
+          </div>
+          <div class="footer__col">
+            <h4>시술안내</h4>
+            <a href="treatments/lifting.html">리프팅</a>
+            <a href="treatments/skincare.html">피부관리</a>
+            <a href="treatments/injection.html">주사시술</a>
+            <a href="treatments/body.html">체형관리</a>
+          </div>
+          <div class="footer__col">
+            <h4>고객지원</h4>
+            <a href="reservation.html">예약하기</a>
+            <a href="schedule.html">진료일정</a>
+            <a href="location.html">오시는 길</a>
+            <a href="pricing.html">비급여항목안내</a>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="카카오톡">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="인스타그램">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__hours">
+        <h4>진료시간</h4>
+        <div class="footer__hours-grid">
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">월 - 목</span>
+            <span class="footer__hours-time">10:00 ~ 19:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">금요일</span>
+            <span class="footer__hours-time">10:00 ~ 21:00</span>
+            <span class="footer__hours-badge">야간진료</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">토요일</span>
+            <span class="footer__hours-time">10:00 ~ 16:00</span>
+          </div>
+          <div class="footer__hours-item">
+            <span class="footer__hours-day">일·공휴일</span>
+            <span class="footer__hours-time">휴무</span>
+          </div>
+        </div>
+        <p class="footer__hours-notice">※ 100% 예약제로 운영됩니다.</p>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__info">
+          <p>톤즈클리닉 명동점 | 대표: OOO | 사업자등록번호: XXX-XX-XXXXX</p>
+          <p>서울특별시 중구 명동길 [상세주소] | 대표전화: 02-XXXX-XXXX</p>
+        </div>
+        <div class="footer__legal">
+          <a href="privacy.html">개인정보처리방침</a>
+          <a href="terms.html">이용약관</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING SIDEBAR ========== -->
+  <div class="floating" id="floating">
+    <a href="#" class="floating__btn floating__btn--naver" aria-label="네이버 예약" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+      <span class="floating__label">네이버예약</span>
+    </a>
+    <a href="#" class="floating__btn floating__btn--kakao" aria-label="카카오톡 상담">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span class="floating__label">카톡상담</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="floating__btn floating__btn--phone" aria-label="전화 상담">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="floating__label">전화상담</span>
+    </a>
+    <button class="floating__btn floating__btn--top" id="scrollTop" aria-label="맨 위로">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+      <span class="floating__label">Top</span>
+    </button>
+  </div>
+
+  <!-- ========== MOBILE BOTTOM TAB ========== -->
+  <nav class="mobile-tab" id="mobileTab">
+    <a href="index.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>홈</span>
+    </a>
+    <a href="reservation.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+      <span>예약</span>
+    </a>
+    <a href="tel:02-XXXX-XXXX" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span>전화</span>
+    </a>
+    <a href="#" class="mobile-tab__item" id="kakaoChat">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.85 5.29 4.63 6.7l-.96 3.56c-.07.26.22.46.44.31L10 19.05c.65.1 1.32.15 2 .15 5.5 0 10-3.58 10-8.2C22 6.58 17.5 3 12 3z"/></svg>
+      <span>카톡</span>
+    </a>
+    <a href="location.html" class="mobile-tab__item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span>위치</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
