@@ -20,22 +20,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* Hero Video Background */
-    .hero__video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: 0;
-    }
-    .hero__bg {
-      background: none;
-    }
+    /* Hero Video Background - use CSS default styles */
     /* About */
     .about__image-placeholder {
       background: url('images/about-clinic.jpg') center/cover no-repeat;
@@ -168,7 +153,7 @@
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="hero">
     <div class="hero__bg">
-      <video class="hero__video" autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline>
         <source src="images/hero-bg.mp4" type="video/mp4">
       </video>
       <div class="hero__overlay"></div>
