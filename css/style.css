@@ -1,19 +1,19 @@
 /* ============================================================
    TONE's CLINIC MYEONGDONG
    Design System v2 — Plan-based rebuild
-   Color: Burgundy (#5C2A2E) + Cream Beige (#DDCDBB)
+   Color: Olive Green (#333F27) + Cream Beige (#DDCDBB)
    Font: Noto Sans KR (KR) + Segoe UI (EN body) + Cormorant Garamond (EN display)
    Grid: 8px-based spacing
    ============================================================ */
 
 /* ---------- CSS VARIABLES ---------- */
 :root {
-  /* Primary Palette (Burgundy) */
-  --green: #5C2A2E;
-  --green-rgb: 92, 42, 46;
-  --green-light: #753840;
-  --green-dark: #3D1C1F;
-  --green-dark-rgb: 61, 28, 31;
+  /* Primary Palette (Olive Green) */
+  --green: #333F27;
+  --green-rgb: 51, 63, 39;
+  --green-light: #5C6552;
+  --green-dark: #212919;
+  --green-dark-rgb: 33, 41, 25;
 
   /* Secondary Palette */
   --beige: #DDCDBB;
