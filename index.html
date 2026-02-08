@@ -351,6 +351,13 @@
           var grid = document.getElementById('resultsGrid');
           var emptyEl = document.getElementById('resultsEmpty');
 
+          // 정적 데이터 (DB에서 가져온 전후사진)
+          var results = [
+            { category: 'lifting', treatment_name: '실리프팅', before_image: 'images/result-1-before.webp', after_image: 'images/result-1-after.webp', is_visible: 1 },
+            { category: 'skin', treatment_name: '피코토닝', before_image: 'images/result-2-before.webp', after_image: 'images/result-2-after.webp', is_visible: 1 },
+            { category: 'skin', treatment_name: '피코토닝', before_image: 'images/result-3-before.webp', after_image: 'images/result-3-after.webp', is_visible: 1 }
+          ];
+
           function createCard(r) {
             var beforeImg = r.before_image
               ? '<img src="' + r.before_image + '" alt="Before" style="width:100%;height:100%;object-fit:cover;">'
@@ -370,39 +377,34 @@
               '</div></div>';
           }
 
-          fetch('/api/results')
-            .then(function(res) { return res.json(); })
-            .then(function(results) {
-              if (!results || results.length === 0) {
-                emptyEl.style.display = 'block';
-                return;
+          if (!results || results.length === 0) {
+            emptyEl.style.display = 'block';
+          } else {
+            var html = '';
+            var count = 0;
+            results.forEach(function(r) {
+              if (r.is_visible && count < 6) {
+                html += createCard(r);
+                count++;
               }
-              var html = '';
-              var count = 0;
-              results.forEach(function(r) {
-                if (r.is_visible && count < 6) {
-                  html += createCard(r);
-                  count++;
-                }
-              });
-              if (!html) { emptyEl.style.display = 'block'; return; }
-              grid.innerHTML = html + emptyEl.outerHTML;
+            });
+            if (!html) { emptyEl.style.display = 'block'; }
+            else { grid.innerHTML = html; }
 
-              // Re-bind tab filtering
-              var tabs = document.querySelectorAll('.results__tab');
-              tabs.forEach(function(tab) {
-                tab.addEventListener('click', function() {
-                  tabs.forEach(function(t) { t.classList.remove('active'); });
-                  tab.classList.add('active');
-                  var filter = tab.getAttribute('data-tab');
-                  var cards = grid.querySelectorAll('.result-card');
-                  cards.forEach(function(card) {
-                    card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
-                  });
+            // Tab filtering
+            var tabs = document.querySelectorAll('.results__tab');
+            tabs.forEach(function(tab) {
+              tab.addEventListener('click', function() {
+                tabs.forEach(function(t) { t.classList.remove('active'); });
+                tab.classList.add('active');
+                var filter = tab.getAttribute('data-tab');
+                var cards = grid.querySelectorAll('.result-card');
+                cards.forEach(function(card) {
+                  card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
                 });
               });
-            })
-            .catch(function() { emptyEl.style.display = 'block'; });
+            });
+          }
         })();
       </script>
     </div>
