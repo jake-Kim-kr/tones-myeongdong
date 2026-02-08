@@ -92,7 +92,15 @@
       <nav class="header__nav" id="nav">
         <ul class="header__menu">
           <li><a href="#hero" class="header__link active">HOME</a></li>
-          <li><a href="#about" class="header__link">소개</a></li>
+          <li class="header__has-dropdown">
+            <a href="#about" class="header__link">소개</a>
+            <ul class="header__dropdown">
+              <li><a href="about.html">클리닉 소개</a></li>
+              <li><a href="story.html">브랜딩 스토리</a></li>
+              <li><a href="gallery.html">둘러보기</a></li>
+              <li><a href="equipment.html">시술 장비</a></li>
+            </ul>
+          </li>
           <li class="header__has-dropdown">
             <a href="#treatments" class="header__link">시술안내</a>
             <ul class="header__dropdown">
@@ -103,7 +111,7 @@
             </ul>
           </li>
           <li><a href="#results" class="header__link">전후사진</a></li>
-          <li><a href="#column" class="header__link">칼럼</a></li>
+          <li><a href="schedule.html" class="header__link">진료일정</a></li>
           <li><a href="#location" class="header__link">오시는 길</a></li>
         </ul>
       </nav>
