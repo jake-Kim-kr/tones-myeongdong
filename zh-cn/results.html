@@ -162,7 +162,7 @@
               '</div></div>';
           }
 
-          fetch('/api/results')
+          var results = [{category:'lifting',treatment_name:'실리프팅',before_image:'../images/result-1-before.webp',after_image:'../images/result-1-after.webp',is_visible:1},{category:'skin',treatment_name:'피코토닝',before_image:'../images/result-2-before.webp',after_image:'../images/result-2-after.webp',is_visible:1},{category:'skin',treatment_name:'피코토닝',before_image:'../images/result-3-before.webp',after_image:'../images/result-3-after.webp',is_visible:1}]; Promise.resolve(results)
             .then(function(res) { return res.json(); })
             .then(function(results) {
               if (!results || results.length === 0) {

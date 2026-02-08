@@ -25,7 +25,7 @@
   <style>
     body { font-family: 'Noto Sans JP', 'Inter', sans-serif; }
     .hero__bg { background: url('../images/hero-bg.jpg') center/cover no-repeat; }
-    .about__image-placeholder { background: url('../images/about-clinic.jpg') center/cover no-repeat; color: transparent; }
+    .about__image-placeholder { background: url('../images/doctor.jpg') center/cover no-repeat; color: transparent; }
     .treatment-card:nth-child(1) .treatment-card__placeholder { background: url('../images/treatment-lifting.jpg') center/cover no-repeat; color: transparent; }
     .treatment-card:nth-child(2) .treatment-card__placeholder { background: url('../images/treatment-skincare.jpg') center/cover no-repeat; color: transparent; }
     .treatment-card:nth-child(3) .treatment-card__placeholder { background: url('../images/treatment-injection.jpg') center/cover no-repeat; color: transparent; }
@@ -318,12 +318,17 @@
             var afterImg = r.after_image ? '<img src="' + r.after_image + '" alt="After" style="width:100%;height:100%;object-fit:cover;">' : '<div class="result-card__placeholder">施術後</div>';
             return '<div class="result-card" data-category="' + r.category + '"><div class="result-card__images"><div class="result-card__before"><span class="result-card__label">Before</span>' + beforeImg + '</div><div class="result-card__after"><span class="result-card__label result-card__label--after">After</span>' + afterImg + '</div></div><div class="result-card__info"><span class="result-card__category">' + (categoryNames[r.category] || r.category) + '</span><span class="result-card__name">' + translateName(r.treatment_name) + '</span></div></div>';
           }
-          fetch('/api/results').then(function(res) { return res.json(); }).then(function(results) {
-            if (!results || results.length === 0) { emptyEl.style.display = 'block'; return; }
+          var results = [
+            { category: 'lifting', treatment_name: '실리프팅', before_image: '../images/result-1-before.webp', after_image: '../images/result-1-after.webp', is_visible: 1 },
+            { category: 'skin', treatment_name: '피코토닝', before_image: '../images/result-2-before.webp', after_image: '../images/result-2-after.webp', is_visible: 1 },
+            { category: 'skin', treatment_name: '피코토닝', before_image: '../images/result-3-before.webp', after_image: '../images/result-3-after.webp', is_visible: 1 }
+          ];
+          if (!results || results.length === 0) { emptyEl.style.display = 'block'; }
+          else {
             var html = '', count = 0;
             results.forEach(function(r) { if (r.is_visible && count < 6) { html += createCard(r); count++; } });
-            if (!html) { emptyEl.style.display = 'block'; return; }
-            grid.innerHTML = html + emptyEl.outerHTML;
+            if (!html) { emptyEl.style.display = 'block'; }
+            else { grid.innerHTML = html; }
             var tabs = document.querySelectorAll('.results__tab');
             tabs.forEach(function(tab) {
               tab.addEventListener('click', function() {
@@ -334,7 +339,7 @@
                 cards.forEach(function(card) { card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none'; });
               });
             });
-          }).catch(function() { emptyEl.style.display = 'block'; });
+          }
         })();
       </script>
     </div>
