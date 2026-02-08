@@ -224,28 +224,28 @@ function initDatabase() {
           section_key: 'home_hero',
           display_order: 1,
           content_ko: JSON.stringify({
-            label: "TONE's CLINIC MYEONGDONG",
+            label: "TONE'S CLINIC MYEONGDONG",
             title_en: "Lifting Life",
             title_kr: "프리미엄 신뢰의 경험, 맞춤 시술의 완성",
-            description: "명동의 프리미엄 피부 전문, TONE's CLINIC입니다<br>당신만을 위해 설계된 1:1 맞춤 안티에이징"
+            description: "명동의 프리미엄 피부 전문, TONE'S CLINIC입니다<br>당신만을 위해 설계된 1:1 맞춤 안티에이징"
           }),
           content_ja: JSON.stringify({
-            label: "TONE's CLINIC MYEONGDONG",
+            label: "TONE'S CLINIC MYEONGDONG",
             title_en: "Lifting Life",
             title_kr: "プレミアムな信頼の経験、オーダーメイド施術の完成",
-            description: "明洞のプレミアム皮膚専門、TONE's CLINICです<br>あなただけのために設計された1:1オーダーメイドアンチエイジング"
+            description: "明洞のプレミアム皮膚専門、TONE'S CLINICです<br>あなただけのために設計された1:1オーダーメイドアンチエイジング"
           }),
           content_zh_cn: JSON.stringify({
-            label: "TONE's CLINIC MYEONGDONG",
+            label: "TONE'S CLINIC MYEONGDONG",
             title_en: "Lifting Life",
             title_kr: "高端信赖体验，定制治疗完成",
-            description: "明洞高端皮肤专科，TONE's CLINIC<br>专为您设计的1:1定制抗衰老"
+            description: "明洞高端皮肤专科，TONE'S CLINIC<br>专为您设计的1:1定制抗衰老"
           }),
           content_zh_tw: JSON.stringify({
-            label: "TONE's CLINIC MYEONGDONG",
+            label: "TONE'S CLINIC MYEONGDONG",
             title_en: "Lifting Life",
             title_kr: "頂級信賴體驗，訂製療程完成",
-            description: "明洞頂級皮膚專科，TONE's CLINIC<br>專為您設計的1:1訂製抗衰老"
+            description: "明洞頂級皮膚專科，TONE'S CLINIC<br>專為您設計的1:1訂製抗衰老"
           })
         },
         {
@@ -254,9 +254,9 @@ function initDatabase() {
           section_key: 'home_about',
           display_order: 2,
           content_ko: JSON.stringify({
-            label: "ABOUT TONE's MYEONGDONG",
+            label: "ABOUT TONE'S MYEONGDONG",
             title: "보이지 않는 것까지<br><em>들여다봅니다</em>",
-            description: ["좋은 시술은 눈에 띄지 않습니다. 자연스러움의 완성은 정밀한 진단에서 시작됩니다.", "TONE's 명동점은 한 분 한 분의 피부결, 골격, 노화 패턴까지 세밀하게 읽어내어 시술을 설계합니다."],
+            description: ["좋은 시술은 눈에 띄지 않습니다. 자연스러움의 완성은 정밀한 진단에서 시작됩니다.", "TONE'S 명동점은 한 분 한 분의 피부결, 골격, 노화 패턴까지 세밀하게 읽어내어 시술을 설계합니다."],
             points: [
               { num: "01", title: "오직 한 사람을 위한 시간", desc: "1:1 전담 시스템, 개인별 맞춤 설계" },
               { num: "02", title: "결과로 증명하는 장비", desc: "울쎄라·써마지 정품 인증 클리닉" },
@@ -266,9 +266,9 @@ function initDatabase() {
             button_link: "about.html"
           }),
           content_ja: JSON.stringify({
-            label: "ABOUT TONE's MYEONGDONG",
+            label: "ABOUT TONE'S MYEONGDONG",
             title: "見えないものまで<br><em>見つめます</em>",
-            description: ["良い施術は目立ちません。自然な仕上がりは精密な診断から始まります。", "TONE's明洞店は、お一人おひとりの肌質、骨格、老化パターンまで細かく分析し、施術を設計します。"],
+            description: ["良い施術は目立ちません。自然な仕上がりは精密な診断から始まります。", "TONE'S明洞店は、お一人おひとりの肌質、骨格、老化パターンまで細かく分析し、施術を設計します。"],
             points: [
               { num: "01", title: "ただ一人のための時間", desc: "1:1専任システム、個人別オーダーメイド設計" },
               { num: "02", title: "結果で証明する装備", desc: "ウルセラ・サーマジ正規認証クリニック" },
@@ -278,9 +278,9 @@ function initDatabase() {
             button_link: "about.html"
           }),
           content_zh_cn: JSON.stringify({
-            label: "ABOUT TONE's MYEONGDONG",
+            label: "ABOUT TONE'S MYEONGDONG",
             title: "看透<br><em>看不见的</em>",
-            description: ["好的治疗不会被察觉。自然的完成始于精密的诊断。", "TONE's明洞店细致分析每位客人的肤质、骨骼、老化模式，设计专属疗程。"],
+            description: ["好的治疗不会被察觉。自然的完成始于精密的诊断。", "TONE'S明洞店细致分析每位客人的肤质、骨骼、老化模式，设计专属疗程。"],
             points: [
               { num: "01", title: "只为一人的时间", desc: "1:1专属系统，个人定制设计" },
               { num: "02", title: "用结果证明的设备", desc: "Ulthera·Thermage正品认证诊所" },
@@ -290,9 +290,9 @@ function initDatabase() {
             button_link: "about.html"
           }),
           content_zh_tw: JSON.stringify({
-            label: "ABOUT TONE's MYEONGDONG",
+            label: "ABOUT TONE'S MYEONGDONG",
             title: "看透<br><em>看不見的</em>",
-            description: ["好的療程不會被察覺。自然的完成始於精密的診斷。", "TONE's明洞店細緻分析每位客人的膚質、骨骼、老化模式，設計專屬療程。"],
+            description: ["好的療程不會被察覺。自然的完成始於精密的診斷。", "TONE'S明洞店細緻分析每位客人的膚質、骨骼、老化模式，設計專屬療程。"],
             points: [
               { num: "01", title: "只為一人的時間", desc: "1:1專屬系統，個人訂製設計" },
               { num: "02", title: "用結果證明的設備", desc: "Ulthera·Thermage正品認證診所" },
@@ -358,7 +358,7 @@ function initDatabase() {
           section_key: 'home_trust',
           display_order: 4,
           content_ko: JSON.stringify({
-            label: "WHY TONE's MYEONGDONG",
+            label: "WHY TONE'S MYEONGDONG",
             title: "자신감 넘치는 이유?<br><em>이 3가지가 다르기 때문입니다</em>",
             items: [
               { number: "15", unit: "억+", label: "프리미엄 장비 투자", desc: "울쎄라·써마지 정품 인증, 더 좋은 결과를 위해 고가 장비에 아낌없이 투자합니다." },
@@ -367,7 +367,7 @@ function initDatabase() {
             ]
           }),
           content_ja: JSON.stringify({
-            label: "WHY TONE's MYEONGDONG",
+            label: "WHY TONE'S MYEONGDONG",
             title: "自信に満ちた理由？<br><em>この3つが違うからです</em>",
             items: [
               { number: "15", unit: "億+", label: "プレミアム装備投資", desc: "ウルセラ・サーマジ正規認証、より良い結果のために高額装備に惜しみなく投資。" },
@@ -376,7 +376,7 @@ function initDatabase() {
             ]
           }),
           content_zh_cn: JSON.stringify({
-            label: "WHY TONE's MYEONGDONG",
+            label: "WHY TONE'S MYEONGDONG",
             title: "充满自信的原因？<br><em>因为这3点不同</em>",
             items: [
               { number: "15", unit: "亿+", label: "高端设备投资", desc: "Ulthera·Thermage正品认证，为更好的效果不惜投资高端设备。" },
@@ -385,7 +385,7 @@ function initDatabase() {
             ]
           }),
           content_zh_tw: JSON.stringify({
-            label: "WHY TONE's MYEONGDONG",
+            label: "WHY TONE'S MYEONGDONG",
             title: "充滿自信的原因？<br><em>因為這3點不同</em>",
             items: [
               { number: "15", unit: "億+", label: "頂級設備投資", desc: "Ulthera·Thermage正品認證，為更好的效果不惜投資頂級設備。" },

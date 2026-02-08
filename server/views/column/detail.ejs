@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <% if (column) { %>
-    <title><%= column.seo_title || column.title %> | TONE's CLINIC 명동점 칼럼</title>
+    <title><%= column.seo_title || column.title %> | TONE'S CLINIC 명동점 칼럼</title>
     <meta name="description" content="<%= column.seo_desc || column.content.replace(/<[^>]*>/g, '').substring(0, 160) %>">
     <meta property="og:title" content="<%= column.seo_title || column.title %>">
     <meta property="og:description" content="<%= column.seo_desc || column.content.replace(/<[^>]*>/g, '').substring(0, 160) %>">
@@ -24,12 +24,12 @@
       "dateModified": "<%= column.updated_at %>",
       "publisher": {
         "@type": "Organization",
-        "name": "TONE's CLINIC 명동점"
+        "name": "TONE'S CLINIC 명동점"
       }
     }
     </script>
   <% } else { %>
-    <title>칼럼을 찾을 수 없습니다 | TONE's CLINIC 명동점</title>
+    <title>칼럼을 찾을 수 없습니다 | TONE'S CLINIC 명동점</title>
   <% } %>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -343,7 +343,7 @@
   <header class="header" id="header">
     <div class="header__inner">
       <a href="/" class="header__logo">
-        <span class="header__logo-main">TONE's CLINIC</span>
+        <span class="header__logo-main">TONE'S CLINIC</span>
         <span class="header__logo-sub">MYEONGDONG</span>
       </a>
       <nav class="header__nav" id="nav">
@@ -411,7 +411,7 @@
         <div class="author-bio__avatar">DA</div>
         <div class="author-bio__info">
           <h4><%= column.author %></h4>
-          <p>TONE's CLINIC 명동점 전문의. 환자 한 분 한 분의 피부 고민에 진심으로 다가가며, 최신 피부과학에 기반한 정확한 정보를 전해드립니다.</p>
+          <p>TONE'S CLINIC 명동점 전문의. 환자 한 분 한 분의 피부 고민에 진심으로 다가가며, 최신 피부과학에 기반한 정확한 정보를 전해드립니다.</p>
         </div>
       </div>
     </article>
@@ -452,10 +452,10 @@
       <div class="footer__top">
         <div class="footer__brand">
           <div class="footer__logo">
-            <span class="footer__logo-main">TONE's CLINIC</span>
+            <span class="footer__logo-main">TONE'S CLINIC</span>
             <span class="footer__logo-sub">MYEONGDONG</span>
           </div>
-          <p class="footer__desc">서울 명동에 위치한 프리미엄 피부과<br>TONE's CLINIC 명동점입니다.</p>
+          <p class="footer__desc">서울 명동에 위치한 프리미엄 피부과<br>TONE'S CLINIC 명동점입니다.</p>
         </div>
         <div class="footer__links">
           <div class="footer__col">
@@ -487,7 +487,7 @@
           <a href="/privacy.html">개인정보처리방침</a>
           <a href="/terms.html">이용약관</a>
         </div>
-        <p class="footer__copy">&copy; 2026 TONE's CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
+        <p class="footer__copy">&copy; 2026 TONE'S CLINIC MYEONGDONG. ALL RIGHTS RESERVED.</p>
       </div>
     </div>
   </footer>
