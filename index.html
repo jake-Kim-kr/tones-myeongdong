@@ -6,11 +6,33 @@
   <title>TONE'S CLINIC 명동점 | 울쎄라·써마지·리프팅 전문 명동 프리미엄 피부과</title>
   <meta name="description" content="서울 중구 명동에 위치한 TONE'S CLINIC 명동점. 울쎄라, 써마지, 리프팅, 보톡스 등 프리미엄 피부 시술 전문. 100% 예약제 운영.">
   <meta name="keywords" content="명동 피부과, 리프팅, 울쎄라, 써마지, 보톡스, 필러">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="TONE'S CLINIC 명동점 | 프리미엄 피부 시술">
   <meta property="og:description" content="명동의 프리미엄 피부과, TONE'S CLINIC입니다. 울쎄라, 써마지, 리프팅 전문.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tones-myeongdong.com/">
+  <meta property="og:image" content="https://tones-myeongdong.com/images/og-image.jpg">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:site_name" content="TONE'S CLINIC 명동점">
+
+  <!-- Canonical & hreflang for multilingual SEO -->
   <link rel="canonical" href="https://tones-myeongdong.com/">
+  <link rel="alternate" hreflang="ko" href="https://tones-myeongdong.com/">
+  <link rel="alternate" hreflang="ja" href="https://tones-myeongdong.com/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tones-myeongdong.com/zh-cn/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://tones-myeongdong.com/zh-tw/">
+  <link rel="alternate" hreflang="x-default" href="https://tones-myeongdong.com/">
+
+  <!-- Search Engine Verification (실제 등록 후 값 입력 필요) -->
+  <!-- <meta name="naver-site-verification" content="YOUR_NAVER_VERIFICATION_CODE"> -->
+  <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE"> -->
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="TONE'S CLINIC 명동점 칼럼 RSS" href="https://tones-myeongdong.com/rss.xml">
 
   <!-- Fonts: Noto Sans KR + Cormorant Garamond -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,27 +78,89 @@
     }
   </style>
 
-  <!-- Structured Data: MedicalClinic -->
+  <!-- Structured Data: MedicalClinic + LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
+    "@type": ["MedicalClinic", "LocalBusiness"],
+    "@id": "https://tones-myeongdong.com/#clinic",
     "name": "TONE'S CLINIC 명동점",
+    "alternateName": "톤즈클리닉 명동점",
     "url": "https://tones-myeongdong.com",
-    "telephone": "02-XXXX-XXXX",
+    "logo": "https://tones-myeongdong.com/images/logo.png",
+    "image": "https://tones-myeongdong.com/images/clinic-exterior.jpg",
+    "telephone": "+82-2-XXXX-XXXX",
+    "email": "contact@tones-myeongdong.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "서울특별시 중구 명동길",
-      "addressLocality": "서울특별시",
-      "addressRegion": "중구",
+      "streetAddress": "명동길",
+      "addressLocality": "중구",
+      "addressRegion": "서울특별시",
+      "postalCode": "04536",
       "addressCountry": "KR"
     },
-    "openingHours": [
-      "Mo-Th 10:00-19:00",
-      "Fr 10:00-21:00",
-      "Sa 10:00-16:00"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "37.5636",
+      "longitude": "126.9869"
+    },
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "10:00", "closes": "19:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "21:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00"}
     ],
-    "medicalSpecialty": "Dermatology"
+    "medicalSpecialty": "Dermatology",
+    "availableService": [
+      {"@type": "MedicalProcedure", "name": "울쎄라 리프팅", "procedureType": "NoninvasiveProcedure"},
+      {"@type": "MedicalProcedure", "name": "써마지", "procedureType": "NoninvasiveProcedure"},
+      {"@type": "MedicalProcedure", "name": "보톡스", "procedureType": "NoninvasiveProcedure"},
+      {"@type": "MedicalProcedure", "name": "필러", "procedureType": "NoninvasiveProcedure"}
+    ],
+    "priceRange": "₩₩₩",
+    "paymentAccepted": "Cash, Credit Card",
+    "currenciesAccepted": "KRW",
+    "areaServed": {
+      "@type": "City",
+      "name": "서울특별시"
+    },
+    "sameAs": [
+      "https://instagram.com/tones_clinic",
+      "https://blog.naver.com/tones_clinic"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "울쎄라 시술은 아프나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "울쎄라는 피부 깊숙이 초음파 에너지를 전달하기 때문에 시술 중 약간의 통증이 있을 수 있습니다. TONE'S CLINIC에서는 마취 크림과 통증 관리 프로토콜을 적용하여 편안한 시술을 제공합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "써마지와 울쎄라의 차이점은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "써마지는 고주파(RF) 에너지를 사용하여 피부 탄력을 개선하고, 울쎄라는 초음파 에너지로 근막층(SMAS)까지 리프팅 효과를 제공합니다. 피부 상태에 따라 단독 또는 병행 시술을 권장드립니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "예약은 어떻게 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TONE'S CLINIC 명동점은 100% 예약제로 운영됩니다. 홈페이지 온라인 예약, 카카오톡 상담, 또는 전화(02-XXXX-XXXX)를 통해 예약하실 수 있습니다."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -173,8 +257,10 @@
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="hero">
     <div class="hero__bg">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline poster="images/hero-poster.jpg" preload="metadata">
         <source src="images/hero-bg.mp4" type="video/mp4">
+        <!-- 비디오 미지원 시 폴백 이미지 -->
+        <img src="images/hero-poster.jpg" alt="TONE'S CLINIC 명동점 프리미엄 피부과" loading="lazy">
       </video>
       <div class="hero__overlay"></div>
     </div>

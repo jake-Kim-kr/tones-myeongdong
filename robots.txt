@@ -1,7 +1,17 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://tones-myeongdong.com/sitemap.xml
+
+# Naver Crawler (Yeti)
+User-agent: Yeti
+Allow: /
+Crawl-delay: 1
+
+# Google Crawler
+User-agent: Googlebot
+Allow: /
 
 # Disallow admin pages
 Disallow: /admin/
@@ -9,3 +19,5 @@ Disallow: /api/
 
 # Disallow server internals
 Disallow: /server/
+Disallow: /node_modules/
+Disallow: /*.json$

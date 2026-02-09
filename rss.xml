@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TONE'S CLINIC 명동점 - 원장 칼럼</title>
+    <link>https://tones-myeongdong.com/column/</link>
+    <description>TONE'S CLINIC 명동점 원장이 전하는 피부 시술 정보와 전문 칼럼</description>
+    <language>ko</language>
+    <lastBuildDate>Sun, 09 Feb 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://tones-myeongdong.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://tones-myeongdong.com/images/logo.png</url>
+      <title>TONE'S CLINIC 명동점</title>
+      <link>https://tones-myeongdong.com/</link>
+    </image>
+
+    <!-- Sample items - 실제 칼럼 내용으로 대체 필요 -->
+    <item>
+      <title>울쎄라, 기대와 현실 사이</title>
+      <link>https://tones-myeongdong.com/column/</link>
+      <description>시술 전 알아야 할 것들. 원리부터 변화의 타임라인까지.</description>
+      <pubDate>Sat, 07 Feb 2026 10:00:00 +0900</pubDate>
+      <guid>https://tones-myeongdong.com/column/ulthera-expectations</guid>
+      <category>리프팅</category>
+    </item>
+    <item>
+      <title>써마지와 울쎄라, 같은 듯 다른 선택</title>
+      <link>https://tones-myeongdong.com/column/</link>
+      <description>두 시술의 본질적 차이. 내 피부에는 어떤 답이 맞을까.</description>
+      <pubDate>Wed, 05 Feb 2026 10:00:00 +0900</pubDate>
+      <guid>https://tones-myeongdong.com/column/thermage-vs-ulthera</guid>
+      <category>리프팅</category>
+    </item>
+    <item>
+      <title>보톡스라는 이름 뒤에 숨은 디테일</title>
+      <link>https://tones-myeongdong.com/column/</link>
+      <description>단순해 보이는 시술일수록, 섬세함이 결과를 가릅니다.</description>
+      <pubDate>Mon, 03 Feb 2026 10:00:00 +0900</pubDate>
+      <guid>https://tones-myeongdong.com/column/botox-details</guid>
+      <category>주사시술</category>
+    </item>
+  </channel>
+</rss>

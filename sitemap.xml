@@ -1,19 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- ======================================== -->
+  <!-- Homepage - All Languages -->
+  <!-- ======================================== -->
   <url>
     <loc>https://tones-myeongdong.com/</loc>
-    <lastmod>2026-02-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tones-myeongdong.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tones-myeongdong.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tones-myeongdong.com/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://tones-myeongdong.com/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tones-myeongdong.com/"/>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tones-myeongdong.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tones-myeongdong.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tones-myeongdong.com/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://tones-myeongdong.com/zh-tw/"/>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-cn/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tones-myeongdong.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tones-myeongdong.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tones-myeongdong.com/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://tones-myeongdong.com/zh-tw/"/>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-tw/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tones-myeongdong.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tones-myeongdong.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tones-myeongdong.com/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://tones-myeongdong.com/zh-tw/"/>
+    <lastmod>2026-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- About -->
+  <!-- ======================================== -->
+  <!-- About - All Languages -->
+  <!-- ======================================== -->
   <url>
     <loc>https://tones-myeongdong.com/about.html</loc>
-    <lastmod>2026-02-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tones-myeongdong.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tones-myeongdong.com/ja/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tones-myeongdong.com/zh-cn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://tones-myeongdong.com/zh-tw/about.html"/>
+    <lastmod>2026-02-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/ja/about.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-cn/about.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-tw/about.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ======================================== -->
+  <!-- New Pages: Gallery, Equipment, Schedule, Story -->
+  <!-- ======================================== -->
+  <url>
+    <loc>https://tones-myeongdong.com/gallery.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/equipment.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/schedule.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/story.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Japanese -->
+  <url>
+    <loc>https://tones-myeongdong.com/ja/gallery.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/ja/equipment.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/ja/schedule.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/ja/story.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Simplified Chinese -->
+  <url>
+    <loc>https://tones-myeongdong.com/zh-cn/gallery.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-cn/equipment.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-cn/schedule.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-cn/story.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Traditional Chinese -->
+  <url>
+    <loc>https://tones-myeongdong.com/zh-tw/gallery.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-tw/equipment.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-tw/schedule.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tones-myeongdong.com/zh-tw/story.html</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Treatments Index -->
